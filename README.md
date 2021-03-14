@@ -5,6 +5,8 @@
 * Ajla Višća 
 * Dinija Seferović 
 
+![atomic](https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG)
+
 ## Opis teme:
 Tjelesna aktivnost prirodna je potreba čovjeka, nužna za očuvanje i unapređenje zdravlja. 
 Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne tjelesne aktivnosti.
