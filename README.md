@@ -21,3 +21,12 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 - pretraživanje recepata pomoću filtera ili bez filtera
 - mogućnost prihvatanja ponuđenog programa vježbi
 - mogućnost pravljenja vlastitog programa vježbi
+
+##### Administrator:
+- mogućnost nadgledanja, održavanja i ažuriranja sistema
+- mogućnost dodavanja vježbi i recepata
+- mogućnosti pregledanja svih registrovanih korisnika
+
+## Akteri:
+- Registrovani korisnik
+- Administrator
