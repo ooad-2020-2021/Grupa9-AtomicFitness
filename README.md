@@ -15,10 +15,9 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 - mogućnost registracije 
 - mogućnost pravljenja vlastitog profila
 - mogućnost popunjavanja podataka o sebi i svojim fitness ciljevima
-- mogućnost promjene podatke o sebi
+- mogućnost promjene podataka o sebi
 - mogućnost odabira razine iskustva
 - pretraživanje vježbi pomoću filtera ili bez filtera
 - pretraživanje recepata pomoću filtera ili bez filtera
 - mogućnost prihvatanja ponuđenog programa vježbi
 - mogućnost pravljenja vlastitog programa vježbi
-- mogućnost promjene podatke o sebi
