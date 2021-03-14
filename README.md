@@ -6,7 +6,7 @@
 * Dinija Seferović 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG" width="250">
+<img src="https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG" width="450">
 </p>
 
 ## Opis teme:
