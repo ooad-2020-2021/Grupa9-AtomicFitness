@@ -1,3 +1,4 @@
+
 # Grupa9-AtomicFitness
 ## Tema: Aplikacija za Fitness
 ## Članovi:
@@ -6,7 +7,7 @@
 * Dinija Seferović 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG" width="450">
+<img src="https://user-images.githubusercontent.com/64585658/111088792-35575000-8529-11eb-9afe-ae09d0769559.jpg" width="550">
 </p>
 
 ## Opis teme:
