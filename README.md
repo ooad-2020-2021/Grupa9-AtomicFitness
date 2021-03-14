@@ -5,7 +5,9 @@
 * Ajla Višća 
 * Dinija Seferović 
 
-![atomic](https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/64585658/111088620-59fef800-8528-11eb-875e-915933b61978.PNG" width="250">
+</p>
 
 ## Opis teme:
 Tjelesna aktivnost prirodna je potreba čovjeka, nužna za očuvanje i unapređenje zdravlja. 
