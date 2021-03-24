@@ -77,6 +77,10 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    dok korisnik obavlja neke druge akcije na aplikaciji.
 
 ### Administrator:
+
+#### Mogućnost nadgledanja, održavanja i ažuriranja sistema
+
+   Administrator ima pregled svih registrovanih korisnika i svih njihovih podataka, osim onih u fitness profilu. Također ima pregled svih vježbi i recepata. Ima ovlasti da dodaje nove vježbe i recepte, ali ne i nove korisnike. Isto tako može da mijenja već postojeće vježbe i recepte, ali ne smije dirati korisničke podatke. Može da briše postojeće vježbe i recepte. Ako je neki korisnik bio neaktivan duže vrijeme administrator ima pravo da mu izbriše profil sa sistema. Administrator nema pravo da mijenja ili da zabranjuje ostale procese.
    
 ## Akteri:
 - Korisnik
