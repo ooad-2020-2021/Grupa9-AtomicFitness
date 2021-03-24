@@ -18,7 +18,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 ## Funkcionalnosti:
 ##### Korisnik:
 - mogućnost registracije
-- mogućnost kreiranja vlastitog profila, što podrazumijeva i njegovo popunjavanje
+- mogućnost kreiranja vlastitog profila, što uključuje i njegovo popunjavanje
 - mogućnost promjene podataka vlastitog profila
 - pretraživanje vježbi pomoću filtera ili bez filtera
 - pretraživanje recepata pomoću filtera ili bez filtera
