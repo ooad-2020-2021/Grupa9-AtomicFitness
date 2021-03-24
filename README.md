@@ -29,8 +29,8 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 ## Detaljan opis funkcionalnosti:
 - mogućnost registracije čime se kreira profil u sistemu:
     - korisnik se mora registrirati da bi koristio aplikaciju
-    - pri registraciji mora popuniti slijedeće podatke: ime, prezime i email adresa
-    - ima maksimalan broj karaktera na ime, prezime i email adresu
+    - pri registraciji moraju popuniti slijedeći podaci: ime, prezime i email adresa
+    - ima ograničenje na maksimalan broj karaktera za ime, prezime i email adresu
     - vrši se opća provjera email adrese
     -  
 
