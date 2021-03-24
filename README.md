@@ -18,7 +18,8 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 ## Funkcionalnosti:
 ##### Korisnik:
 - mogućnost registracije čime se kreira profil u sistemu
-- mogućnost promjene podataka vlastitog profila
+- mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima
+- mogućnost promjene podataka vlastitog profila ili fitness profila
 - pretraživanje vježbi pomoću filtera ili bez filtera
 - pretraživanje recepata pomoću filtera ili bez filtera
 - mogućnost generiranja programa na osnovu vlastitog profila
