@@ -34,5 +34,5 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 - mogućnosti pregledanja svih registrovanih korisnika
 
 ## Akteri:
-- Registrovani korisnik
+- Korisnik
 - Administrator
