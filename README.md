@@ -38,13 +38,13 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 ## Detaljan opis funkcionalnosti:
 ### Mogućnost registracije čime se kreira profil u sistemu:
    
-   Korisnik se mora registrirati da bi koristio aplikaciju. Pri registraciji moraju se popuniti slijedeći podaci: ime, prezime, email adresa i password.
-   Postoji ograničenje na maksimalan broj karaktera za ime, prezime, email adresu i password. Za password imamo i ograničenje na minimalni broj karaktera. Također se vrši validacija email adrese. Ukoliko su uneseni podaci uredu,
+   Korisnik se mora registrirati da bi koristio aplikaciju. Pri registraciji moraju se popuniti slijedeći podaci: ime, prezime, email adresa, username i password.
+   Postoji ograničenje na maksimalan broj karaktera za ime, prezime, email adresu i password. Za username i password imamo i ograničenje na minimalni broj karaktera. Također se vrši validacija email adrese. Ukoliko su uneseni podaci uredu,
    na email adresu se šalje verifikacioni kod kojeg korisnik treba da ukuca u aplikaciji da bi finalizirao svoju registraciju.
    
 ### Nakon uspješne registracije moguće je koristiti aplikaciju prijavom:
 
-   Registrovani korisnik nakon uspješne registracije ima mogućnost prijave prilikom ponovnog korištenja aplikacije.
+   Da bi registrovani korisnik koristio aplikaciju treba se prijaviti svojim username-om i password-om. Također mu se daje mogućnost da mu uređaj zapamti njegove prijavne podatke kako ih ne bi ponovo morao unositi.
    
 ### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
 
