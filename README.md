@@ -26,6 +26,14 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 - mogućnost kreiranja vlastitog programa
 - mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju
 
+## Detaljan opis funkcionalnosti:
+- mogućnost registracije čime se kreira profil u sistemu:
+    - korisnik se mora registrirati da bi koristio aplikaciju
+    - pri registraciji mora popuniti slijedeće podatke: ime, prezime i email adresa
+    - ima maksimalan broj karaktera na ime, prezime i email adresu
+    - vrši se opća provjera email adrese
+    -  
+
 ##### Administrator:
 - mogućnost nadgledanja, održavanja i ažuriranja sistema, što podrazumijeva:
     - mogućnost pregledanja svih registrovanih korisnika i svih njihovih podataka
