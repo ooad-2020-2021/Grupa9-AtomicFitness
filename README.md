@@ -94,7 +94,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     
 ### Mogućnost brisanja vježbi ili recepata
 
-   Administrator može da briše postojeće vježbe i recepte, ukoliko smatra da bi to dovelo do bolje zainteresovanosti korisnika fitness aplikacija. Administrator nema pravo da      mijenja ili da zabranjuje ostale procese.
+   Administrator može da briše postojeće vježbe i recepte, ukoliko smatra da bi to dovelo unaprijeđenja i do veće zainteresovanosti korisnika fitness aplikacija. Administrator      nema pravo da mijenja ili da zabranjuje ostale procese.
    
 ## Akteri:
 - Korisnik
