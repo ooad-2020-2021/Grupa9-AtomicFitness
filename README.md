@@ -42,6 +42,10 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    Postoji ograničenje na maksimalan broj karaktera za ime, prezime, email adresu i password. Za password imamo i ograničenje na minimalni broj karaktera. Također se vrši validacija email adrese. Ukoliko su uneseni podaci uredu,
    na email adresu se šalje verifikacioni kod kojeg korisnik treba da ukuca u aplikaciji da bi finalizirao svoju registraciju.
    
+### Nakon uspješne registracije moguće je koristiti aplikaciju prijavom:
+
+     Registrovani korisnik nakon uspješne registracije ima mogućnost prijave prilikom ponovnog korištenja aplikacije.
+   
 ### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
 
    Nakon registracije korisnik može napraviti svoj fitness profil i mora ga popuniti svojim podacima i ciljevima. Kod ovog procesa registrovanom korisniku se nude opcije od kojih bira koje mu odgovaraju. 
