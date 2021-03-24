@@ -67,7 +67,8 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    
 ### mogućnost slušanja muzike 
 
-   Registrovani korisnik ima mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju.
+   Registrovani korisnik ima mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju. Muzika može svirati u pozadini
+   dok korisnik obavlja neke druge akcije na aplikaciji.
    
 ## Akteri:
 - Korisnik
