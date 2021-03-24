@@ -32,7 +32,8 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     - pri registraciji moraju popuniti slijedeći podaci: ime, prezime i email adresa
     - ima ograničenje na maksimalan broj karaktera za ime, prezime i email adresu
     - vrši se opća provjera email adrese
-    -  
+    - na email adresu se šalje verifikacioni kod 
+    - korisnik treba da ukuca taj kod u aplikaciji da bi finalizirao svoju registraciju
 
 ##### Administrator:
 - mogućnost nadgledanja, održavanja i ažuriranja sistema, što podrazumijeva:
