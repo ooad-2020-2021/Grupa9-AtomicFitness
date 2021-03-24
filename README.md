@@ -36,43 +36,47 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     - mogućnost brisanja vježbi ili recepata
 
 ## Detaljan opis funkcionalnosti:
-### Mogućnost registracije čime se kreira profil u sistemu:
+### Korisnik:
+
+#### Mogućnost registracije čime se kreira profil u sistemu:
    
    Korisnik se mora registrirati da bi koristio aplikaciju. Pri registraciji moraju se popuniti slijedeći podaci: ime, prezime, email adresa i password.
    Postoji ograničenje na maksimalan broj karaktera za ime, prezime, email adresu i password. Za password imamo i ograničenje na minimalni broj karaktera. Također se vrši validacija email adrese. Ukoliko su uneseni podaci uredu,
    na email adresu se šalje verifikacioni kod kojeg korisnik treba da ukuca u aplikaciji da bi finalizirao svoju registraciju.
    
-### Prijava
+#### Prijava
 
    Da bi registrovani korisnik koristio aplikaciju treba se prijaviti svojim email-om i password-om. Također mu se daje mogućnost da mu uređaj zapamti njegove prijavne podatke kako ih ne bi ponovo morao unositi.
    
-### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
+#### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
 
    Nakon registracije korisnik može napraviti svoj fitness profil i mora ga popuniti svojim podacima i ciljevima. Kod ovog procesa registrovanom korisniku se nude opcije od kojih bira koje mu odgovaraju. 
     
-### Pretraživanje vježbi pomoću filtera ili bez filtera
+#### Pretraživanje vježbi pomoću filtera ili bez filtera
     
    Registrovani korisnik ima mogućnost da pretražuje vježbe iz biblioteke vježbi gdje su za svaku vježbu navedeni osnovni podaci i slike. Također ima mogućnost da 
    pretraživanje vrši pomoću filtriranja na osnovu podataka o vježbama.
     
-### Pretraživanje recepata pomoću filtera ili bez filtera
+#### Pretraživanje recepata pomoću filtera ili bez filtera
 
    Registrovani korisnik ima mogućnost da pretražuje zdrave recepte iz biblioteke recepata. Također ima mogućnost da pretraživanje vrši pomoću filtriranja na osnovu 
    željenih glavnih sastojaka.
    
-### Mogućnost generiranja programa na osnovu vlastitog profila
+#### Mogućnost generiranja programa na osnovu vlastitog profila
 
    Registrovani korisnik, ukoliko je popunio podatke za fitness profil, ima mogućnost da mu se generiše program na osnovu unesenih informacija. Ukoliko njegov profil nije
    popunjen, odbija se zahtjev generisanja programa, te mu se nudi da prvo popuni profil. Ako korisnik ne želi generisani program ima mogućnost da generiše neki drugi ukoliko  postoji više programa koji odgovaraju njegovim podacima i ciljevima iz fitness profila.
    
-### Mogućnost kreiranja vlastitog programa
+#### Mogućnost kreiranja vlastitog programa
 
    Registrovani korisnik ima mogućnost da kreira vlastiti program vježbi birajući vježbe iz biblioteke vježbi koje će njegov program sadržavati.
    
-### Mogućnost slušanja muzike 
+#### Mogućnost slušanja muzike 
 
    Registrovani korisnik ima mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju. Muzika može svirati u pozadini
    dok korisnik obavlja neke druge akcije na aplikaciji.
+
+### Administrator:
    
 ## Akteri:
 - Korisnik
