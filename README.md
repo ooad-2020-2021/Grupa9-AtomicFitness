@@ -63,8 +63,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 ### Mogućnost generiranja programa na osnovu vlastitog profila
 
    Registrovani korisnik, ukoliko je popunio podatke za fitness profil, ima mogućnost da mu se generiše program na osnovu unesenih informacija. Ukoliko njegov profil nije
-   popunjen, odbija se zahtjev generisanja programa već nudi mu se da prvo popuni profil. Može se više puta generisati ako korisnik želi drugačiji program koji mu je ponuđen,      ukoliko postoji više programa koji odgovaraju njegovim 
-   podacima i ciljevima iz fitness profila.
+   popunjen, odbija se zahtjev generisanja programa, te mu se nudi da prvo popuni profil. Ako korisnik ne želi generisani program ima mogućnost da generiše neki drugi ukoliko  postoji više programa koji odgovaraju njegovim podacima i ciljevima iz fitness profila.
    
 ### Mogućnost kreiranja vlastitog programa
 
