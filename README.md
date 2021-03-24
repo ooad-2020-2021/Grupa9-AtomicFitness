@@ -24,7 +24,6 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 - pretraživanje vježbi pomoću filtera ili bez filtera
 - pretraživanje recepata pomoću filtera ili bez filtera
 - mogućnost generiranja programa na osnovu podataka o sebi i svojim fitness ciljevima
-- mogućnost prihvatanja generiranog programa i/ili ponovnog generiranja
 - mogućnost kreiranja vlastitog programa
 - mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju
 
