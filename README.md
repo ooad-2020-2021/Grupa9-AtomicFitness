@@ -75,9 +75,26 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    Registrovani korisnik ima mogućnost slušanja muzike korištenjem nekog online servisa na trenutnom uređaju ili nekom vanjskom uređaju. Muzika može svirati u pozadini
    dok korisnik obavlja neke druge akcije na aplikaciji.
 
-### Mogućnost nadgledanja, održavanja i ažuriranja sistema
 
-   Administrator ima pregled svih registrovanih korisnika i svih njihovih podataka, osim onih u fitness profilu. Također ima pregled svih vježbi i recepata. Ima ovlasti da dodaje nove vježbe i recepte, ali ne i nove korisnike. Isto tako može da mijenja već postojeće vježbe i recepte, ali ne smije dirati korisničke podatke. Može da briše postojeće vježbe i recepte. Ako je neki korisnik bio neaktivan duže vrijeme administrator ima pravo da mu izbriše profil sa sistema. Administrator nema pravo da mijenja ili da zabranjuje ostale procese.
+### Mogućnost pregledanja svih registrovanih korisnika i svih njihovih podataka
+
+   Administrator je u mogućnosti pregledati korisnike, koji pri registraciji na aplikaciju unose svoje podatke, u koje ima uvid samo administrator, uz napomenu da se poštuju sva    pravila privatnosti. Administrator nema mogućnost pregleda onih podataka u fitness profilu. 
+   
+### Mogućnost brisanja registrovanih korisnika
+   
+   Administrator je u mogućnosti izbrisati registrovanog/e korisnika/e, ukoliko primijeti da je/su isti na bilo koji način ugrozio/li sebe ili druge, te da krši pravila            korištenja aplikacije. U slučaju da je neki korisnik bio neaktivan duže vrijeme administrator ima pravo da mu izbriše profil sa sistema.
+   
+### Mogućnost dodavanja vježbi ili recepata
+   
+   Administrator ima pregled svih vježbi i recepata, te ima ovlasti da dodaje nove vježbe i recepte, ali ne i nove korisnike. Administrator ima pravo dodavati vježbe ili            recepte, za koje smatra da će korisnicima, kao tek registrovanim korisnicima i početnicima, omogućiti lakše snalaženje u korištenju pogodnosti koje nudi ova aplikacija. Isto    tako, dodavanjem vježbi ili recepata za one koji nisu početnici, također predstavlja jednu od prednosti administratorovog dodavanja vježbi ili recepata prema njihovim            ciljevima. 
+   
+### Mogućnost promjene vježbi ili recepata
+    
+   Administrator može da mijenja već postojeće vježbe i recepte u cilju poboljšanja kvalitete aplikacije, ali ne smije dirati korisničke podatke. 
+    
+### Mogućnost brisanja vježbi ili recepata
+
+   Administrator može da briše postojeće vježbe i recepte, ukoliko smatra da bi to dovelo do bolje zainteresovanosti korisnika fitness aplikacija. Administrator nema pravo da      mijenja ili da zabranjuje ostale procese.
    
 ## Akteri:
 - Korisnik
