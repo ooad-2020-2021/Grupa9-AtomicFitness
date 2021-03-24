@@ -44,10 +44,6 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    
 ### Prijava
 
-   Registrovani korisnik nakon uspješne registracije ima mogućnost prijave prilikom ponovnog korištenja aplikacije.
-   
-### Nakon uspješne registracije moguće je koristiti aplikaciju prijavom:
-
    Da bi registrovani korisnik koristio aplikaciju treba se prijaviti svojim email-om i password-om. Također mu se daje mogućnost da mu uređaj zapamti njegove prijavne podatke kako ih ne bi ponovo morao unositi.
    
 ### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
