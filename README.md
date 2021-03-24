@@ -43,6 +43,8 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     - mogućnost dodavanja korisnika, vježbi ili recepata
     - mogućnost promjene vježbi ili recepata
 
+
+
 ## Akteri:
 - Korisnik
 - Administrator
