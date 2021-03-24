@@ -44,7 +44,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    
 ### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
 
-   Nakon registracije korisnik može nadopuniti svoj profil fitness podacima i ciljevima što čini njegov fitness profil koji kasnije može mijenjati i dopunjavati.
+   Nakon registracije korisnik može napraviti svoj fitness profil i mora ga popuniti svojim podacima i ciljevima. Kod ovog procesa registrovanom korisniku se nude opcije od kojih bira koje mu odgovaraju. 
     
 ### Pretraživanje vježbi pomoću filtera ili bez filtera
     
