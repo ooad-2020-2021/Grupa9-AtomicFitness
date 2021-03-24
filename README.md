@@ -52,7 +52,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     
 ### Pretraživanje vježbi pomoću filtera ili bez filtera
     
-   Registrovani korisnik ima mogućnost da pretražuje vježbe iz biblioteke vježbi gdje su za svaku vježbu navedeni osnovni podaci i slika. Također ima mogućnost da 
+   Registrovani korisnik ima mogućnost da pretražuje vježbe iz biblioteke vježbi gdje su za svaku vježbu navedeni osnovni podaci i slike. Također ima mogućnost da 
    pretraživanje vrši pomoću filtriranja na osnovu podataka o vježbama.
     
 ### Pretraživanje recepata pomoću filtera ili bez filtera
