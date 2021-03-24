@@ -34,7 +34,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
     - vrši se opća provjera email adrese
     - na email adresu se šalje verifikacioni kod 
     - korisnik treba da ukuca taj kod u aplikaciji da bi finalizirao svoju registraciju
-    - p
+    - 
 
 ##### Administrator:
 - mogućnost nadgledanja, održavanja i ažuriranja sistema, što podrazumijeva:
