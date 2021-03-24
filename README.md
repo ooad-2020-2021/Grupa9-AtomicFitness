@@ -44,7 +44,7 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
    
 ### Nakon uspješne registracije moguće je koristiti aplikaciju prijavom:
 
-     Registrovani korisnik nakon uspješne registracije ima mogućnost prijave prilikom ponovnog korištenja aplikacije.
+   Registrovani korisnik nakon uspješne registracije ima mogućnost prijave prilikom ponovnog korištenja aplikacije.
    
 ### Mogućnost kreiranja fitness profila, što uključuje i njegovo popunjavanje podacima:
 
