@@ -38,11 +38,10 @@ Stručnjaci preporučuju svakodnevno 60 ili više minuta umjerene do intenzivne 
 
 ##### Administrator:
 - mogućnost nadgledanja, održavanja i ažuriranja sistema, što podrazumijeva:
-    - mogućnost pregledanja svih registrovanih korisnika i svih njihovih podataka
-    - mogućnost brisanja registrovanih korisnika
-    - mogućnost dodavanja vježbi ili recepata
+    - mogućnost pregledanja registrovanih korisnika, vježbi ili recepata
+    - mogućnost brisanja registrovanih korisnika, vježbi ili recepata
+    - mogućnost dodavanja korisnika, vježbi ili recepata
     - mogućnost promjene vježbi ili recepata
-    - mogućnost brisanja vježbi ili recepata
 
 ## Akteri:
 - Korisnik
