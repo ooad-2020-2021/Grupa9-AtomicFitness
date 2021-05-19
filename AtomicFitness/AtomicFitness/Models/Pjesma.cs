@@ -16,8 +16,7 @@ namespace AtomicFitness.Models
         public string Naziv { get; set; }
 
         [Display(Name = "Singers")]
-        [NotMapped]
-        public List<string> Pjevaci { get; set; }
+        public string Pjevaci { get; set; }
 
         [Display(Name = "Genre")]
         public string Zanr { get; set; }

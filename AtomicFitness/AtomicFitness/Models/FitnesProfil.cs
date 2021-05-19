@@ -4,52 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using static AtomicFitness.Models.Enums;
 
 namespace AtomicFitness.Models
 {
-    public enum Spol
-    {
-        [Display(Name = "Male")]
-        M,
-        [Display(Name = "Female")]
-        F
-    }
-
-    public enum Level
-    {
-        [Display(Name = "Beginner")]
-        Beginner,
-        [Display(Name = "Intermediate")]
-        Intermediate,
-        [Display(Name = "Advanced")]
-        Advanced
-    }
-
-    public enum Oprema
-    {
-        [Display(Name = "Dumbbell")]
-        Dumbbell,
-        [Display(Name = "Barbell")]
-        Barbell,
-        [Display(Name = "Kettlebell")]
-        Kettlebell,
-        [Display(Name = "Weight Machine")]
-        WeightMachine,
-        [Display(Name = "Cardio Machine")]
-        CardioMachine,
-        [Display(Name = "Resistance Band")]
-        ResistanceBand
-    }
-
-    public enum Ciljevi
-    {
-        [Display(Name = "Loose Weight")]
-        LooseWeight,
-        [Display(Name = "Gain Muscle")]
-        GainMuscle,
-        [Display(Name = "Improve Health")]
-        ImproveHealth
-    }
     public class FitnesProfil
     {
         [Key]
@@ -58,12 +16,12 @@ namespace AtomicFitness.Models
         [EnumDataType(typeof(Spol))]
         [Display(Name = "Gender")]
         [Required]
-        public char Spol { get; set; }
+        public Spol Spol { get; set; }
 
         [EnumDataType(typeof(Level))]
         [Display(Name = "Fitness Level")]
         [Required]
-        public string Level { get; set; }
+        public Level Level { get; set; }
 
         [Range(15,80,ErrorMessage = "Your age should be in the range 15 to 80")]
         [Display(Name = "Age")]
@@ -83,13 +41,17 @@ namespace AtomicFitness.Models
         [EnumDataType(typeof(Oprema))]
         [Display(Name = "Equipment You Have Access To")]
         [Required]
-        [NotMapped]
-        public List<string> Oprema { get; set; }
+        public Oprema Oprema { get; set; }
 
         [EnumDataType(typeof(Ciljevi))]
         [Display(Name = "Goals")]
         [Required]
-        public string Ciljevi { get; set; }
+        public Ciljevi Ciljevi { get; set; }
+
+        [EnumDataType(typeof(Misici))]
+        [Display(Name = "Muscles You Prefer Working")]
+        [Required]
+        public Misici Misici { get; set; }
 
         public FitnesProfil() { }
     }

@@ -16,11 +16,9 @@ namespace AtomicFitness.Models
         public string Naziv { get; set; }
 
         [Display(Name = "Ingredients")]
-        [NotMapped]
-        public List<string> Sastojci { get; set; }
+        public string Sastojci { get; set; }
 
         [Display(Name = "Description")]
-        [NotMapped]
         public string Opis { get; set; }
 
         public Recept() { }
