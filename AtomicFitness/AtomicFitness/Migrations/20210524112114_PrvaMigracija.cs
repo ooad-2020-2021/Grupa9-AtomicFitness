@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+using MySql.Data.EntityFrameworkCore.Metadata;
 
-namespace AtomicFitness.Data.Migrations
+namespace AtomicFitness.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class PrvaMigracija : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +48,112 @@ namespace AtomicFitness.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FitnesProfil",
+                columns: table => new
+                {
+                    FitnesProfilID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Spol = table.Column<int>(nullable: false),
+                    Level = table.Column<int>(nullable: false),
+                    Starost = table.Column<int>(nullable: false),
+                    Kilaza = table.Column<int>(nullable: false),
+                    Visina = table.Column<int>(nullable: false),
+                    Oprema = table.Column<int>(nullable: false),
+                    Ciljevi = table.Column<int>(nullable: false),
+                    Misici = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FitnesProfil", x => x.FitnesProfilID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FitnesProgram",
+                columns: table => new
+                {
+                    FitnesProgramID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    KorisnikID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FitnesProgram", x => x.FitnesProgramID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Korisnik",
+                columns: table => new
+                {
+                    KorisnikID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Ime = table.Column<string>(maxLength: 20, nullable: false),
+                    Prezime = table.Column<string>(maxLength: 20, nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Sifra = table.Column<string>(maxLength: 20, nullable: false),
+                    FitnesProfilID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Korisnik", x => x.KorisnikID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pjesma",
+                columns: table => new
+                {
+                    PjesmaID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Naziv = table.Column<string>(nullable: true),
+                    Pjevaci = table.Column<string>(nullable: true),
+                    Zanr = table.Column<string>(nullable: true),
+                    GodinaIzdanja = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pjesma", x => x.PjesmaID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Recept",
+                columns: table => new
+                {
+                    ReceptID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Naziv = table.Column<string>(nullable: true),
+                    Sastojci = table.Column<string>(nullable: true),
+                    Opis = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recept", x => x.ReceptID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vjezba",
+                columns: table => new
+                {
+                    VjezbaID = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    FitnesProgramID = table.Column<int>(nullable: false),
+                    Naziv = table.Column<string>(nullable: true),
+                    Oprema = table.Column<int>(nullable: false),
+                    Level = table.Column<int>(nullable: false),
+                    Misici = table.Column<int>(nullable: false),
+                    BrojPonavljanja = table.Column<int>(nullable: false),
+                    BrojSerija = table.Column<int>(nullable: false),
+                    Opis = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vjezba", x => x.VjezbaID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -73,7 +174,7 @@ namespace AtomicFitness.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -162,8 +263,7 @@ namespace AtomicFitness.Data.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -189,8 +289,7 @@ namespace AtomicFitness.Data.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -209,6 +308,24 @@ namespace AtomicFitness.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "FitnesProfil");
+
+            migrationBuilder.DropTable(
+                name: "FitnesProgram");
+
+            migrationBuilder.DropTable(
+                name: "Korisnik");
+
+            migrationBuilder.DropTable(
+                name: "Pjesma");
+
+            migrationBuilder.DropTable(
+                name: "Recept");
+
+            migrationBuilder.DropTable(
+                name: "Vjezba");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

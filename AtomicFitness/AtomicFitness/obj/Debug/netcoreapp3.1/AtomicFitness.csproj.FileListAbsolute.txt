@@ -90,3 +90,15 @@ C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\At
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\AtomicFitness.dll
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\AtomicFitness.pdb
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\AtomicFitness.genruntimeconfig.cache
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
