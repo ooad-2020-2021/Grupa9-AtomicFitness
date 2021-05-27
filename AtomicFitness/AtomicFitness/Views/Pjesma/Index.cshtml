@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AtomicFitness.Models.Pjesma>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pjevaci)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zanr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GodinaIzdanja)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pjevaci)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zanr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PjesmaID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PjesmaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PjesmaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
