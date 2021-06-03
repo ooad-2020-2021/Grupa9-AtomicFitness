@@ -1,4 +1,5 @@
-﻿@model AtomicFitness.Models.Vjezba
+﻿@using static AtomicFitness.Models.Enums;
+@model AtomicFitness.Models.Vjezba
 
 @{
     ViewData["Title"] = "Create";
@@ -13,28 +14,23 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FitnesProgramID" class="control-label"></label>
-                <input asp-for="FitnesProgramID" class="form-control" />
-                <span asp-validation-for="FitnesProgramID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Naziv" class="control-label"></label>
                 <input asp-for="Naziv" class="form-control" />
                 <span asp-validation-for="Naziv" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Oprema" class="control-label"></label>
-                <select asp-for="Oprema" class="form-control"></select>
+                <select asp-for="Oprema" class="form-control" asp-items="Html.GetEnumSelectList<Oprema>()"></select>
                 <span asp-validation-for="Oprema" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Level" class="control-label"></label>
-                <select asp-for="Level" class="form-control"></select>
+                <select asp-for="Level" class="form-control" asp-items="Html.GetEnumSelectList<Level>()"></select>
                 <span asp-validation-for="Level" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Misici" class="control-label"></label>
-                <select asp-for="Misici" class="form-control"></select>
+                <select asp-for="Misici" class="form-control" asp-items="Html.GetEnumSelectList<Misici>()"></select>
                 <span asp-validation-for="Misici" class="text-danger"></span>
             </div>
             <div class="form-group">

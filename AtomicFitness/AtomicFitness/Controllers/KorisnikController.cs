@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AtomicFitness.Controllers
 {
@@ -19,12 +20,14 @@ namespace AtomicFitness.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrator")]
         // GET: Korisnik
         public async Task<IActionResult> Index()
         {
             return View(await _context.Korisnik.ToListAsync());
         }
 
+        [Authorize(Roles = "Administrator")]
         // GET: Korisnik/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,28 +46,7 @@ namespace AtomicFitness.Controllers
             return View(korisnik);
         }
 
-        // GET: Korisnik/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Korisnik/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("KorisnikID,Ime,Prezime,Email,Sifra,FitnesProfilID")] Korisnik korisnik)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(korisnik);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(korisnik);
-        }
-
+        [Authorize(Roles = "Administrator")]
         // GET: Korisnik/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -116,6 +98,7 @@ namespace AtomicFitness.Controllers
             return View(korisnik);
         }
 
+        [Authorize(Roles = "Administrator")]
         // GET: Korisnik/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

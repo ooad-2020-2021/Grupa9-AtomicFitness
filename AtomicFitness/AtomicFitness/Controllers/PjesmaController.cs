@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AtomicFitness.Controllers
 {
@@ -19,12 +20,14 @@ namespace AtomicFitness.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Pjesma
         public async Task<IActionResult> Index()
         {
             return View(await _context.Pjesma.ToListAsync());
         }
 
+        [Authorize]
         // GET: Pjesma/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +46,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
+        [Authorize]
         // GET: Pjesma/Create
         public IActionResult Create()
         {
@@ -65,6 +69,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
+        [Authorize]
         // GET: Pjesma/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -116,6 +121,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
+        [Authorize]
         // GET: Pjesma/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

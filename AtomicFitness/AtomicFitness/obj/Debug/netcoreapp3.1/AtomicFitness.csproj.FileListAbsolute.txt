@@ -76,7 +76,6 @@ C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\At
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\AtomicFitness.RazorCoreGenerate.cache
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -174,7 +173,6 @@ C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\At
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Korisnik\Create.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Korisnik\Delete.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Korisnik\Details.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\Korisnik\Edit.cshtml.g.cs

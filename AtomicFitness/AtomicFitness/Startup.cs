@@ -32,6 +32,7 @@ namespace AtomicFitness
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                   .AddRoles<IdentityRole>()
                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddRazorPages();
