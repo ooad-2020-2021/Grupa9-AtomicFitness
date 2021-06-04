@@ -1,4 +1,5 @@
 using AtomicFitness.Data;
+using AtomicFitness.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +32,7 @@ namespace AtomicFitness
                 options.UseMySQL(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<Korisnik>(options => options.SignIn.RequireConfirmedAccount = true)
                    .AddRoles<IdentityRole>()
                    .AddEntityFrameworkStores<ApplicationDbContext>();
 

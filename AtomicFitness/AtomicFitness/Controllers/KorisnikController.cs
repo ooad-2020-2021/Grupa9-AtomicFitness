@@ -29,7 +29,7 @@ namespace AtomicFitness.Controllers
 
         [Authorize(Roles = "Administrator")]
         // GET: Korisnik/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? id)
         {
             if (id == null)
             {
@@ -37,70 +37,18 @@ namespace AtomicFitness.Controllers
             }
 
             var korisnik = await _context.Korisnik
-                .FirstOrDefaultAsync(m => m.KorisnikID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (korisnik == null)
             {
                 return NotFound();
             }
 
-            return View(korisnik);
-        }
-
-        [Authorize(Roles = "Administrator")]
-        // GET: Korisnik/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var korisnik = await _context.Korisnik.FindAsync(id);
-            if (korisnik == null)
-            {
-                return NotFound();
-            }
-            return View(korisnik);
-        }
-
-        // POST: Korisnik/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("KorisnikID,Ime,Prezime,Email,Sifra,FitnesProfilID")] Korisnik korisnik)
-        {
-            if (id != korisnik.KorisnikID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(korisnik);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!KorisnikExists(korisnik.KorisnikID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
             return View(korisnik);
         }
 
         [Authorize(Roles = "Administrator")]
         // GET: Korisnik/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id)
         {
             if (id == null)
             {
@@ -108,7 +56,7 @@ namespace AtomicFitness.Controllers
             }
 
             var korisnik = await _context.Korisnik
-                .FirstOrDefaultAsync(m => m.KorisnikID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (korisnik == null)
             {
                 return NotFound();
@@ -120,7 +68,7 @@ namespace AtomicFitness.Controllers
         // POST: Korisnik/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var korisnik = await _context.Korisnik.FindAsync(id);
             _context.Korisnik.Remove(korisnik);
@@ -128,9 +76,9 @@ namespace AtomicFitness.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool KorisnikExists(int id)
+        private bool KorisnikExists(string id)
         {
-            return _context.Korisnik.Any(e => e.KorisnikID == id);
+            return _context.Korisnik.Any(e => e.Id == id);
         }
     }
 }
