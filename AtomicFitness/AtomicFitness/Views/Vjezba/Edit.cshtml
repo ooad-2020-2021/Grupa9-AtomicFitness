@@ -1,4 +1,5 @@
-﻿@model AtomicFitness.Models.Vjezba
+﻿@using static AtomicFitness.Models.Enums;
+@model AtomicFitness.Models.Vjezba
 
 @{
     ViewData["Title"] = "Edit";
@@ -20,17 +21,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Oprema" class="control-label"></label>
-                <select asp-for="Oprema" class="form-control"></select>
+                <select asp-for="Oprema" class="form-control" asp-items="Html.GetEnumSelectList<Oprema>()"></select>
                 <span asp-validation-for="Oprema" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Level" class="control-label"></label>
-                <select asp-for="Level" class="form-control"></select>
+                <select asp-for="Level" class="form-control" asp-items="Html.GetEnumSelectList<Level>()"></select>
                 <span asp-validation-for="Level" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Misici" class="control-label"></label>
-                <select asp-for="Misici" class="form-control"></select>
+                <select asp-for="Misici" class="form-control" asp-items="Html.GetEnumSelectList<Misici>()"></select>
                 <span asp-validation-for="Misici" class="text-danger"></span>
             </div>
             <div class="form-group">

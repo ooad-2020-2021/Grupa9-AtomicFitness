@@ -1,4 +1,5 @@
-﻿@model AtomicFitness.Models.FitnesProfil
+﻿@using static AtomicFitness.Models.Enums;
+@model AtomicFitness.Models.FitnesProfil
 
 @{
     ViewData["Title"] = "Edit";
@@ -15,12 +16,12 @@
             <input type="hidden" asp-for="FitnesProfilID" />
             <div class="form-group">
                 <label asp-for="Spol" class="control-label"></label>
-                <select asp-for="Spol" class="form-control"></select>
+                <select asp-for="Spol" class="form-control" asp-items="Html.GetEnumSelectList<Spol>()"></select>
                 <span asp-validation-for="Spol" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Level" class="control-label"></label>
-                <select asp-for="Level" class="form-control"></select>
+                <select asp-for="Level" class="form-control" asp-items="Html.GetEnumSelectList<Level>()"></select>
                 <span asp-validation-for="Level" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,17 +41,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Oprema" class="control-label"></label>
-                <select asp-for="Oprema" class="form-control"></select>
+                <select asp-for="Oprema" class="form-control" asp-items="Html.GetEnumSelectList<Oprema>()"></select>
                 <span asp-validation-for="Oprema" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Ciljevi" class="control-label"></label>
-                <select asp-for="Ciljevi" class="form-control"></select>
+                <select asp-for="Ciljevi" class="form-control" asp-items="Html.GetEnumSelectList<Ciljevi>()"></select>
                 <span asp-validation-for="Ciljevi" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Misici" class="control-label"></label>
-                <select asp-for="Misici" class="form-control"></select>
+                <select asp-for="Misici" class="form-control" asp-items="Html.GetEnumSelectList<Misici>()"></select>
                 <span asp-validation-for="Misici" class="text-danger"></span>
             </div>
             <div class="form-group">
