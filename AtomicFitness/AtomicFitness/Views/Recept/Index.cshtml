@@ -16,7 +16,9 @@
         @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
         @Html.RadioButton("SearchBy", "Sastojci") <span style="margin-right: 10px">Ingredients</span>
         <br />
-        @Html.TextBox("Search") <input type="submit" value="Search" />
+        @Html.TextBox("Search") <input type="submit" value="Search" style="margin-bottom: 10px"/>
+        <br />
+        <span style="color: red">For more than one ingredient use comma as a delimiter</span>
     }
 </p>
 <table class="table">
