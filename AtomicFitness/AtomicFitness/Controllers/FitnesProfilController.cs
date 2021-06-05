@@ -50,7 +50,15 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProfil/Create
         public IActionResult Create()
         {
-            return View();
+            var brojac = _context.FitnesProfil.FromSqlRaw("SELECT * FROM FitnesProfil").Count();
+            if (brojac != 0)
+            {
+                return View("Views/FitnesProfil/CreateAccessDenied.cshtml");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: FitnesProfil/Create

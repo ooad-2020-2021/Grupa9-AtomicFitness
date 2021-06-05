@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\FitnesProfil\AccessDeniedCreate.cshtml" />
+    <Content Remove="Views\FitnesProfil\Index1.cshtml" />
     <Content Remove="Views\Home\Privacy.cshtml" />
     <Content Remove="Views\Korisnik\Create.cshtml" />
     <Content Remove="Views\Korisnik\Edit.cshtml" />

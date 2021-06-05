@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
 using Microsoft.AspNetCore.Authorization;
+using static AtomicFitness.Models.Enums;
+using System.Text.RegularExpressions;
 
 namespace AtomicFitness.Controllers
 {
@@ -22,9 +24,28 @@ namespace AtomicFitness.Controllers
 
         [Authorize]
         // GET: Vjezba
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchBy, string Search)
         {
-            return View(await _context.Vjezba.ToListAsync());
+            if(SearchBy == "Naziv") 
+            {
+                return View(await _context.Vjezba.Where(x => Search == null || x.Naziv.Replace(" ","").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+            }
+            else if (SearchBy == "Oprema")
+            {
+                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Oprema)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Oprema.Equals((Oprema)Enum.Parse(typeof(Oprema), Regex.Replace(Search, @"\s", ""),true))).ToListAsync());
+            }
+            else if(SearchBy == "Level")
+            {
+                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Level)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Level.Equals((Level)Enum.Parse(typeof(Level), Regex.Replace(Search, @"\s", ""), true))).ToListAsync());
+            }
+            else if (SearchBy == "Misici")
+            {
+                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Misici)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Misici.Equals((Misici)Enum.Parse(typeof(Misici), Regex.Replace(Search, @"\s", ""), true))).ToListAsync());
+            }
+            else
+            {
+                return View(await _context.Vjezba.ToListAsync());
+            }
         }
 
         [Authorize]

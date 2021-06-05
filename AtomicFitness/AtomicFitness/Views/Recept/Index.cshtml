@@ -9,6 +9,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    @using (Html.BeginForm("Index", "Recept", FormMethod.Get))
+    {
+        <b style="margin-right: 10px">Search By:</b>
+        @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
+        @Html.RadioButton("SearchBy", "Sastojci") <span style="margin-right: 10px">Ingredients</span>
+        <br />
+        @Html.TextBox("Search") <input type="submit" value="Search" />
+    }
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -21,11 +31,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.Opis)
             </th>
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">No rows match search criteria</td>
+    </tr>
+
+}
+else
+{
+    foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Naziv)
@@ -42,6 +62,7 @@
                 <a asp-action="Delete" asp-route-id="@item.ReceptID">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>

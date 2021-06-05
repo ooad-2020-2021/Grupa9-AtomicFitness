@@ -9,6 +9,18 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    @using (Html.BeginForm("Index", "Vjezba", FormMethod.Get))
+    {
+        <b style="margin-right: 10px">Search By:</b>
+        @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
+        @Html.RadioButton("SearchBy", "Oprema") <span style="margin-right: 10px">Equipment</span>
+        @Html.RadioButton("SearchBy", "Level") <span style="margin-right: 10px">Fitness Level</span>
+        @Html.RadioButton("SearchBy", "Misici") <span style="margin-right: 10px">Muscles Worked</span>
+        <br />
+        @Html.TextBox("Search") <input type="submit" value="Search" />
+    }
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -33,39 +45,50 @@
             <th>
                 @Html.DisplayNameFor(model => model.Opis)
             </th>
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Oprema)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Misici)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrojPonavljanja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrojSerija)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Opis)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.VjezbaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VjezbaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VjezbaID">Delete</a>
-            </td>
-        </tr>
-}
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="8">No rows match search criteria</td>
+            </tr>
+
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naziv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Oprema)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Level)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Misici)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrojPonavljanja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrojSerija)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Opis)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.VjezbaID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VjezbaID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VjezbaID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>

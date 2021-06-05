@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.RegularExpressions;
 
 namespace AtomicFitness.Controllers
 {
@@ -22,9 +23,20 @@ namespace AtomicFitness.Controllers
 
         [Authorize]
         // GET: Recept
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchBy, string Search)
         {
-            return View(await _context.Recept.ToListAsync());
+            if (SearchBy == "Naziv")
+            {
+                return View(await _context.Recept.Where(x => Search == null || x.Naziv.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+            }
+            else if (SearchBy == "Sastojci")
+            {
+                return View(await _context.Recept.Where(x => Search == null || x.Sastojci.Replace(" ", "").IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0).ToListAsync());
+            }
+            else
+            {
+                return View(await _context.Recept.ToListAsync());
+            }
         }
 
         [Authorize]
