@@ -13,16 +13,25 @@ namespace AtomicFitness.Models
         public int PjesmaID { get; set; }
 
         [Display(Name = "Name")]
+        [Required]
         public string Naziv { get; set; }
 
         [Display(Name = "Singers")]
+        [Required]
         public string Pjevaci { get; set; }
 
         [Display(Name = "Genre")]
+        [Required]
         public string Zanr { get; set; }
 
-        [Display(Name = "Release Date")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}")]
+        [Display(Name = "Release date")]
+        [Required]
         public DateTime GodinaIzdanja { get; set; }
+
+        [Display(Name = "Link to YouTube")]
+        [Required]
+        public string Link { get; set; }
 
         public Pjesma() { }
     }

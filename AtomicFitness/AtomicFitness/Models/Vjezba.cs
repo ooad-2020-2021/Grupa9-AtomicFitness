@@ -15,28 +15,35 @@ namespace AtomicFitness.Models
 
         public int FitnesProgramID { get; set; }
 
-        [Display(Name = "Name")]        
+        [Display(Name = "Name")]  
+        [Required]
         public string Naziv { get; set; }
 
         [EnumDataType(typeof(Oprema))]
         [Display(Name = "Equipment")]
+        [Required]
         public Oprema Oprema { get; set; }
 
         [EnumDataType(typeof(Level))]
         [Display(Name = "Fitness Level")]
+        [Required]
         public Level Level { get; set; }
 
         [EnumDataType(typeof(Misici))]
         [Display(Name = "Muscles Worked")]
+        [Required]
         public Misici Misici { get; set; }
 
         [Display(Name = "Recommended Reps")]
+        [Required]
         public int BrojPonavljanja { get; set; }
 
         [Display(Name = "Receommended Sets")]
+        [Required]
         public int BrojSerija { get; set; }
 
         [Display(Name = "Description")]
+        [Required]
         public string Opis { get; set; }
 
         public Vjezba() { }

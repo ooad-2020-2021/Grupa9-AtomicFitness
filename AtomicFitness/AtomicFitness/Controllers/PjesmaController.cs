@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Web;
+using System.Text.RegularExpressions;
 
 namespace AtomicFitness.Controllers
 {
@@ -22,9 +24,25 @@ namespace AtomicFitness.Controllers
 
         [Authorize]
         // GET: Pjesma
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchBy, string Search)
         {
-            return View(await _context.Pjesma.ToListAsync());
+
+            if (SearchBy == "Naziv")
+            {
+                return View(await _context.Pjesma.Where(x => Search == null || x.Naziv.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+            }
+            else if (SearchBy == "Pjevaci")
+            {
+                return View(await _context.Pjesma.Where(x => Search == null || x.Pjevaci.Replace(" ", "").IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0).ToListAsync());
+            }
+            else if (SearchBy == "Zanr")
+            {
+                return View(await _context.Pjesma.Where(x => Search == null || x.Zanr.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+            }
+            else
+            {
+                return View(await _context.Pjesma.ToListAsync());
+            };
         }
 
         [Authorize]
@@ -46,7 +64,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         // GET: Pjesma/Create
         public IActionResult Create()
         {
@@ -58,10 +76,23 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja")] Pjesma pjesma)
+        public async Task<IActionResult> Create([Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja,Link")] Pjesma pjesma)
         {
             if (ModelState.IsValid)
             {
+                var url = pjesma.Link;
+                var uri = new Uri(url);
+                var query = HttpUtility.ParseQueryString(uri.Query);
+                var videoId = string.Empty;
+                if (query.AllKeys.Contains("v"))
+                {
+                    videoId = query["v"];
+                }
+                else
+                {
+                    videoId = uri.Segments.Last();
+                }
+                pjesma.Link = "https://www.youtube.com/embed/" + videoId;
                 _context.Add(pjesma);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -69,7 +100,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         // GET: Pjesma/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -91,7 +122,7 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja")] Pjesma pjesma)
+        public async Task<IActionResult> Edit(int id, [Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja,Link")] Pjesma pjesma)
         {
             if (id != pjesma.PjesmaID)
             {
@@ -102,6 +133,19 @@ namespace AtomicFitness.Controllers
             {
                 try
                 {
+                    var url = pjesma.Link;
+                    var uri = new Uri(url);
+                    var query = HttpUtility.ParseQueryString(uri.Query);
+                    var videoId = string.Empty;
+                    if (query.AllKeys.Contains("v"))
+                    {
+                        videoId = query["v"];
+                    }
+                    else
+                    {
+                        videoId = uri.Segments.Last();
+                    }
+                    pjesma.Link = "https://www.youtube.com/embed/" + videoId;
                     _context.Update(pjesma);
                     await _context.SaveChangesAsync();
                 }
@@ -121,7 +165,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         // GET: Pjesma/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

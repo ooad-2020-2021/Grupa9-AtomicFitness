@@ -13,12 +13,15 @@ namespace AtomicFitness.Models
         public int ReceptID { get; set; }
 
         [Display(Name = "Name")]
+        [Required]
         public string Naziv { get; set; }
 
         [Display(Name = "Ingredients")]
+        [Required]
         public string Sastojci { get; set; }
 
         [Display(Name = "Description")]
+        [Required]
         public string Opis { get; set; }
 
         public Recept() { }

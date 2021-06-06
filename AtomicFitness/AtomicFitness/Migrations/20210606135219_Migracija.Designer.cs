@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AtomicFitness.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210604135009_Migracija")]
+    [Migration("20210606135219_Migracija")]
     partial class Migracija
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,13 +154,20 @@ namespace AtomicFitness.Migrations
                     b.Property<DateTime>("GodinaIzdanja")
                         .HasColumnType("datetime");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Pjevaci")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Zanr")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("PjesmaID");
@@ -175,12 +182,15 @@ namespace AtomicFitness.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Sastojci")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("ReceptID");
@@ -210,9 +220,11 @@ namespace AtomicFitness.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Oprema")

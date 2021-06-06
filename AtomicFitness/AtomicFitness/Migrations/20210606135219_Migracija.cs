@@ -89,10 +89,11 @@ namespace AtomicFitness.Migrations
                 {
                     PjesmaID = table.Column<int>(nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Naziv = table.Column<string>(nullable: true),
-                    Pjevaci = table.Column<string>(nullable: true),
-                    Zanr = table.Column<string>(nullable: true),
-                    GodinaIzdanja = table.Column<DateTime>(nullable: false)
+                    Naziv = table.Column<string>(nullable: false),
+                    Pjevaci = table.Column<string>(nullable: false),
+                    Zanr = table.Column<string>(nullable: false),
+                    GodinaIzdanja = table.Column<DateTime>(nullable: false),
+                    Link = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,9 +106,9 @@ namespace AtomicFitness.Migrations
                 {
                     ReceptID = table.Column<int>(nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Naziv = table.Column<string>(nullable: true),
-                    Sastojci = table.Column<string>(nullable: true),
-                    Opis = table.Column<string>(nullable: true)
+                    Naziv = table.Column<string>(nullable: false),
+                    Sastojci = table.Column<string>(nullable: false),
+                    Opis = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,13 +122,13 @@ namespace AtomicFitness.Migrations
                     VjezbaID = table.Column<int>(nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     FitnesProgramID = table.Column<int>(nullable: false),
-                    Naziv = table.Column<string>(nullable: true),
+                    Naziv = table.Column<string>(nullable: false),
                     Oprema = table.Column<int>(nullable: false),
                     Level = table.Column<int>(nullable: false),
                     Misici = table.Column<int>(nullable: false),
                     BrojPonavljanja = table.Column<int>(nullable: false),
                     BrojSerija = table.Column<int>(nullable: false),
-                    Opis = table.Column<string>(nullable: true)
+                    Opis = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
