@@ -9,19 +9,21 @@
 <p>
     <a asp-action="Create" class="btn btn-secondary">Create New</a>
 </p>
-<p>
+
+<div style="margin-bottom: 10px">
     @using (Html.BeginForm("Index", "Recept", FormMethod.Get))
     {
-        <b style="margin-right: 10px">Search By:</b>
-        @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
-        @Html.RadioButton("SearchBy", "Sastojci") <span style="margin-right: 10px">Ingredients</span>
-        <br />
-        @Html.TextBox("Search") <input type="submit" value="Search"/>
+        <div style="margin-bottom: 10px">
+            <b style="margin-right: 10px">Search By:</b>
+            @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
+            @Html.RadioButton("SearchBy", "Sastojci") <span style="margin-right: 10px">Ingredients</span>
+        </div>
+        @Html.TextBox("Search") <input type="submit" value="Search" />
         <br />
         <small class="form-text text-muted">For more than one ingredient use comma as a delimiter</small>
     }
-</p>
-<table class="table table-hover">
+</div>
+<table class="table table-hover" style="text-align: center" >
     <thead>
         <tr class="table-dark">
             <th>
@@ -52,7 +54,7 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.Sastojci)
             </td>
-            <td class="btn-group" role="group">
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.ReceptID" class="btn btn-outline-primary">Edit</a> 
                 <a asp-action="Details" asp-route-id="@item.ReceptID" class="btn btn-outline-primary">Details</a> 
                 <a asp-action="Delete" asp-route-id="@item.ReceptID" class="btn btn-outline-primary">Delete</a>
