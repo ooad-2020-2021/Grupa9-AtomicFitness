@@ -25,8 +25,11 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProfil
         public async Task<IActionResult> Index()
         {
-
-            return View(await _context.FitnesProfil.ToListAsync());
+            var fitnesProfili = await _context.FitnesProfil.ToListAsync();
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            fitnesProfili = fitnesProfili.FindAll(x => x.Id == id);
+            return View(fitnesProfili);
         }
 
         [Authorize(Roles = "Korisnik")]
