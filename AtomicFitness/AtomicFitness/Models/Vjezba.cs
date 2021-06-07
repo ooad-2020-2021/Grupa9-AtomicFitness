@@ -25,20 +25,20 @@ namespace AtomicFitness.Models
         public Oprema Oprema { get; set; }
 
         [EnumDataType(typeof(Level))]
-        [Display(Name = "Fitness Level")]
+        [Display(Name = "Level")]
         [Required]
         public Level Level { get; set; }
 
         [EnumDataType(typeof(Misici))]
-        [Display(Name = "Muscles Worked")]
+        [Display(Name = "Muscles")]
         [Required]
         public Misici Misici { get; set; }
 
-        [Display(Name = "Recommended Reps")]
+        [Display(Name = "Reps")]
         [Required]
         public int BrojPonavljanja { get; set; }
 
-        [Display(Name = "Receommended Sets")]
+        [Display(Name = "Sets")]
         [Required]
         public int BrojSerija { get; set; }
 

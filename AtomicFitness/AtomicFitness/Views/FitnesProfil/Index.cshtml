@@ -7,12 +7,12 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
 </p>
 
-<table class="table">
+<table class="table table-hover" style="text-align: center">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th>
                 @Html.DisplayNameFor(model => model.Spol)
             </th>
@@ -68,9 +68,9 @@
                 @Html.DisplayFor(modelItem => item.Misici)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FitnesProfilID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FitnesProfilID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FitnesProfilID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-primary">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-primary">Delete</a>
             </td>
         </tr>
 }

@@ -24,6 +24,7 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProfil
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.FitnesProfil.ToListAsync());
         }
 

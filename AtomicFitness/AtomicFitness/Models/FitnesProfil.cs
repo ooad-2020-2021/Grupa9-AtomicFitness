@@ -19,7 +19,7 @@ namespace AtomicFitness.Models
         public Spol Spol { get; set; }
 
         [EnumDataType(typeof(Level))]
-        [Display(Name = "Fitness Level")]
+        [Display(Name = "Level")]
         [Required]
         public Level Level { get; set; }
 
@@ -39,7 +39,7 @@ namespace AtomicFitness.Models
         public int Visina { get; set; }
 
         [EnumDataType(typeof(Oprema))]
-        [Display(Name = "Equipment You Have Access To")]
+        [Display(Name = "Equipment")]
         [Required]
         public Oprema Oprema { get; set; }
 
@@ -49,7 +49,7 @@ namespace AtomicFitness.Models
         public Ciljevi Ciljevi { get; set; }
 
         [EnumDataType(typeof(Misici))]
-        [Display(Name = "Muscles You Prefer Working")]
+        [Display(Name = "Muscles")]
         [Required]
         public Misici Misici { get; set; }
 
