@@ -15,8 +15,8 @@
     {
         <div style="margin-bottom: 10px">
             <b style="margin-right: 10px">Search By:</b>
-            @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
-            @Html.RadioButton("SearchBy", "Sastojci") <span style="margin-right: 10px">Ingredients</span>
+            @Html.RadioButton("SearchBy", "Naziv", new { @class = "form-check-input" }) <span style="margin-right: 10px">Name</span>
+            @Html.RadioButton("SearchBy", "Sastojci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Ingredients</span>
         </div>
         @Html.TextBox("Search") <input type="submit" value="Search" />
         <br />

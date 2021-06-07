@@ -14,12 +14,12 @@
     {
         <div style="margin-bottom: 10px">
             <b style="margin-right: 10px">Search By:</b>
-            @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
-            @Html.RadioButton("SearchBy", "Oprema") <span style="margin-right: 10px">Equipment</span>
-            @Html.RadioButton("SearchBy", "Level") <span style="margin-right: 10px">Level</span>
-            @Html.RadioButton("SearchBy", "Misici") <span style="margin-right: 10px">Muscles</span>
+            @Html.RadioButton("SearchBy", "Naziv", new { @class = "form-check-input" }) <span style="margin-right: 10px">Name</span>
+            @Html.RadioButton("SearchBy", "Oprema", new { @class = "form-check-input" }) <span style="margin-right: 10px">Equipment</span>
+            @Html.RadioButton("SearchBy", "Level", new { @class = "form-check-input" }) <span style="margin-right: 10px">Level</span>
+            @Html.RadioButton("SearchBy", "Misici", new { @class = "form-check-input" }) <span style="margin-right: 10px">Muscles</span>
         </div>
-        @Html.TextBox("Search") <input type="submit" value="Search"/>
+        @Html.TextBox("Search") <input type="submit" value="Search" />
     }
 </div>
 
@@ -79,8 +79,8 @@
                         @Html.DisplayFor(modelItem => item.BrojSerija)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.VjezbaID" class="btn btn-outline-primary">Edit</a> 
-                        <a asp-action="Details" asp-route-id="@item.VjezbaID" class="btn btn-outline-primary">Details</a> 
+                        <a asp-action="Edit" asp-route-id="@item.VjezbaID" class="btn btn-outline-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.VjezbaID" class="btn btn-outline-primary">Details</a>
                         <a asp-action="Delete" asp-route-id="@item.VjezbaID" class="btn btn-outline-primary">Delete</a>
                     </td>
                 </tr>

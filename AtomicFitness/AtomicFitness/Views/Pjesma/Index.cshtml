@@ -15,9 +15,9 @@
     {
         <div style="margin-bottom: 10px">
             <b style="margin-right: 10px">Search By:</b>
-            @Html.RadioButton("SearchBy", "Naziv", true) <span style="margin-right: 10px">Name</span>
-            @Html.RadioButton("SearchBy", "Pjevaci") <span style="margin-right: 10px">Singers</span>
-            @Html.RadioButton("SearchBy", "Zanr") <span style="margin-right: 10px">Genre</span>
+            @Html.RadioButton("SearchBy", "Naziv", new { @class = "form-check-input" }) <span style="margin-right: 10px">Name</span>
+            @Html.RadioButton("SearchBy", "Pjevaci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Singers</span>
+            @Html.RadioButton("SearchBy", "Zanr", new { @class = "form-check-input" }) <span style="margin-right: 10px">Genre</span>
         </div>
         @Html.TextBox("Search") <input type="submit" value="Search"/>
         <br />
@@ -46,7 +46,7 @@
 @if (Model.Count() == 0)
 {
     <tr>
-        <td colspan="4">No rows match search criteria</td>
+        <td colspan="5">No rows match search criteria</td>
     </tr>
 
 }

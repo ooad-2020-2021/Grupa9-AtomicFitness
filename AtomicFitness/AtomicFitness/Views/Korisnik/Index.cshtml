@@ -11,11 +11,11 @@
     {
         <div style="margin-bottom: 10px">
             <b style="margin-right: 10px">Search By:</b>
-            @Html.RadioButton("SearchBy", "Ime", true) <span style="margin-right: 10px">First Name</span>
-            @Html.RadioButton("SearchBy", "Prezime") <span style="margin-right: 10px">Last Name</span>
-            @Html.RadioButton("SearchBy", "Email") <span style="margin-right: 10px">Email</span>
+            @Html.RadioButton("SearchBy", "Ime", new { @class = "form-check-input" }) <span style="margin-right: 10px">First Name</span>
+            @Html.RadioButton("SearchBy", "Prezime", new { @class = "form-check-input" }) <span style="margin-right: 10px">Last Name</span>
+            @Html.RadioButton("SearchBy", "Email", new { @class = "form-check-input"}) <span style="margin-right: 10px">Email</span>
         </div>
-        @Html.TextBox("Search") <input type="submit" value="Search"  />
+        @Html.TextBox("Search") <input type="submit" value="Search" />
     }
 </div>
 
