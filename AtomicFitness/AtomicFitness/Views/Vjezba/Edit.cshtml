@@ -15,42 +15,42 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="VjezbaID" />
             <div class="form-group">
-                <label asp-for="Naziv" class="control-label"></label>
+                <label asp-for="Naziv" class="form-label mt-4"></label>
                 <input asp-for="Naziv" class="form-control" />
                 <span asp-validation-for="Naziv" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Oprema" class="control-label"></label>
+                <label asp-for="Oprema" class="form-label mt-4"></label>
                 <select asp-for="Oprema" class="form-control" asp-items="Html.GetEnumSelectList<Oprema>()"></select>
                 <span asp-validation-for="Oprema" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
+                <label asp-for="Level" class="form-label mt-4"></label>
                 <select asp-for="Level" class="form-control" asp-items="Html.GetEnumSelectList<Level>()"></select>
                 <span asp-validation-for="Level" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Misici" class="control-label"></label>
+                <label asp-for="Misici" class="form-label mt-4"></label>
                 <select asp-for="Misici" class="form-control" asp-items="Html.GetEnumSelectList<Misici>()"></select>
                 <span asp-validation-for="Misici" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BrojPonavljanja" class="control-label"></label>
+                <label asp-for="BrojPonavljanja" class="form-label mt-4"></label>
                 <input asp-for="BrojPonavljanja" class="form-control" />
                 <span asp-validation-for="BrojPonavljanja" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BrojSerija" class="control-label"></label>
+                <label asp-for="BrojSerija" class="form-label mt-4"></label>
                 <input asp-for="BrojSerija" class="form-control" />
                 <span asp-validation-for="BrojSerija" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
+                <label asp-for="Opis" class="form-label mt-4"></label>
                 <textarea asp-for="Opis" class="form-control"></textarea>
                 <span asp-validation-for="Opis" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-label mt-4">
+                <input type="submit" value="Save" class="btn btn-secondary" />
             </div>
         </form>
     </div>

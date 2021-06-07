@@ -7,20 +7,20 @@
 <h1>Index</h1>
 
 <p>
-    @using (Html.BeginForm("Index", "Korisnik", FormMethod.Get))
-    {
-        <b style="margin-right: 10px">Search By:</b>
-        @Html.RadioButton("SearchBy", "Ime", true) <span style="margin-right: 10px">First Name</span>
-        @Html.RadioButton("SearchBy", "Prezime") <span style="margin-right: 10px">Last Name</span>
-        @Html.RadioButton("SearchBy", "Email") <span style="margin-right: 10px">Email</span>
-        <br />
-        @Html.TextBox("Search") <input type="submit" value="Search" style="margin-bottom: 10px" />
-    }
+        @using (Html.BeginForm("Index", "Korisnik", FormMethod.Get))
+        {
+            <b style="margin-right: 10px">Search By:</b>
+            @Html.RadioButton("SearchBy", "Ime", true) <span style="margin-right: 10px">First Name</span>
+            @Html.RadioButton("SearchBy", "Prezime") <span style="margin-right: 10px">Last Name</span>
+            @Html.RadioButton("SearchBy", "Email") <span style="margin-right: 10px">Email</span>
+            <br />
+            @Html.TextBox("Search") <input type="submit" value="Search" style="margin-bottom: 10px" />
+        }
 </p>
 
-<table class="table">
+<table class="table table-hover">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th>
                 @Html.DisplayNameFor(model => model.Ime)
             </th>
@@ -55,9 +55,9 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td class="btn-group" role="group">
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-primary">Delete</a>
             </td>
         </tr>
     }

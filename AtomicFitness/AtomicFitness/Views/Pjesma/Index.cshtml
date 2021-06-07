@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
 </p>
 <p>
     @using (Html.BeginForm("Index", "Pjesma", FormMethod.Get))
@@ -17,14 +17,14 @@
         @Html.RadioButton("SearchBy", "Pjevaci") <span style="margin-right: 10px">Singers</span>
         @Html.RadioButton("SearchBy", "Zanr") <span style="margin-right: 10px">Genre</span>
         <br />
-        @Html.TextBox("Search") <input type="submit" value="Search" style="margin-bottom: 10px" />
+        @Html.TextBox("Search") <input type="submit" value="Search"/>
         <br />
-        <span style="color: red">For more than one singer use comma as a delimiter</span>
+        <small class="form-text text-muted">For more than one ingredient use comma as a delimiter</small>
     }
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th>
                 @Html.DisplayNameFor(model => model.Naziv)
             </th>
@@ -65,10 +65,10 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.GodinaIzdanja)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PjesmaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PjesmaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PjesmaID">Delete</a>
+            <td class="btn-group" role="group">
+                <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Delete</a>
             </td>
         </tr>
     }
