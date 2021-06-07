@@ -53,6 +53,8 @@ namespace AtomicFitness.Models
         [Required]
         public Misici Misici { get; set; }
 
+        public int Id { get; set; }
+
         public FitnesProfil() { }
     }
 }

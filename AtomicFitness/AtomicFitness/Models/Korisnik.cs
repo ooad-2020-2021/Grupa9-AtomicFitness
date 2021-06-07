@@ -22,8 +22,6 @@ namespace AtomicFitness.Models
         [RegularExpression(@"[A-Z|a-z]*", ErrorMessage = "You can only use letters from the English alphabet")]
         [Required]
         public string Prezime { get; set; }
-        
-        public int FitnesProfilID { get; set; }
 
         public Korisnik() { }
     }

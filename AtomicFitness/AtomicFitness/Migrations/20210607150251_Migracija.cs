@@ -35,7 +35,8 @@ namespace AtomicFitness.Migrations
                     Visina = table.Column<int>(nullable: false),
                     Oprema = table.Column<int>(nullable: false),
                     Ciljevi = table.Column<int>(nullable: false),
-                    Misici = table.Column<int>(nullable: false)
+                    Misici = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,8 +76,7 @@ namespace AtomicFitness.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Ime = table.Column<string>(maxLength: 20, nullable: false),
-                    Prezime = table.Column<string>(maxLength: 20, nullable: false),
-                    FitnesProfilID = table.Column<int>(nullable: false)
+                    Prezime = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {

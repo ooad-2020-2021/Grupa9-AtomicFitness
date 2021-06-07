@@ -26,6 +26,9 @@ namespace AtomicFitness.Migrations
                     b.Property<int>("Ciljevi")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("Kilaza")
                         .HasColumnType("int");
 
@@ -84,9 +87,6 @@ namespace AtomicFitness.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("FitnesProfilID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Ime")
                         .IsRequired()

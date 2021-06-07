@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace AtomicFitness.Controllers
 {
@@ -51,8 +52,10 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProfil/Create
         public IActionResult Create()
         {
-            var exists = _context.FitnesProfil.Any();
-            if (exists)
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            var fitnesProfil = _context.FitnesProfil.Where(c => c.Id == id).FirstOrDefault();
+            if (fitnesProfil != null)
             {
                 return View("Views/FitnesProfil/CreateAccessDenied.cshtml");
             }
@@ -71,6 +74,8 @@ namespace AtomicFitness.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+                fitnesProfil.Id = int.Parse(currentUser.Id);
                 _context.Add(fitnesProfil);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

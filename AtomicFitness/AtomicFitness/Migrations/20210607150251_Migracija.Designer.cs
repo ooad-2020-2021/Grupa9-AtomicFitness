@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AtomicFitness.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606135219_Migracija")]
+    [Migration("20210607150251_Migracija")]
     partial class Migracija
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,9 @@ namespace AtomicFitness.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Ciljevi")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Kilaza")
@@ -86,9 +89,6 @@ namespace AtomicFitness.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("FitnesProfilID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Ime")
                         .IsRequired()
