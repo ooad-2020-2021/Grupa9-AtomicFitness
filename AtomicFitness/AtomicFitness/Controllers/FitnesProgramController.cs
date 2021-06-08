@@ -24,7 +24,10 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProgram
         public async Task<IActionResult> Index()
         {
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
             var fitnesProgrami = await _context.FitnesProgram.ToListAsync();
+            fitnesProgrami = fitnesProgrami.FindAll(x => x.KorisnikID == id);
             return View(fitnesProgrami);
         }
 
@@ -32,12 +35,12 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProgram/Details/5
         public async Task<IActionResult> Details()
         {
-            int idZadnjeGenerisanPrograma = await _context.FitnesProgram.MaxAsync(x => x.FitnesProgramID);
-            var fitnesProgram = await _context.FitnesProgram.FindAsync(idZadnjeGenerisanPrograma);
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            var idZadnjeg = await _context.FitnesProgram.Where(x => x.KorisnikID == id).MaxAsync(x => x.FitnesProgramID);
+            var fitnesProgram = await _context.FitnesProgram.FindAsync(idZadnjeg);
             var vjezbe = await _context.Vjezba.Where(x => x.FitnesProgramID == fitnesProgram.FitnesProgramID).ToListAsync();
             return View(vjezbe);
-
-            //return View(fitnesProgram);
         }
 
         // POST: FitnesProgram/Create
@@ -47,12 +50,12 @@ namespace AtomicFitness.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FitnesProgram fitnesProgram)
         {
-
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            fitnesProgram.KorisnikID = id;
             _context.Add(fitnesProgram);
             await _context.SaveChangesAsync();
             var vjezbe = await _context.Vjezba.ToListAsync();
-            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
-            int id = int.Parse(currentUser.Id);
             var fitnesProfili = await _context.FitnesProfil.ToListAsync();
             var fitnesProfil = fitnesProfili.Find(x => x.Id == id);
             if (fitnesProfil != null)
@@ -66,58 +69,6 @@ namespace AtomicFitness.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-        }
-
-        [Authorize(Roles = "Korisnik")]
-        // GET: FitnesProgram/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var fitnesProgram = await _context.FitnesProgram.FindAsync(id);
-            if (fitnesProgram == null)
-            {
-                return NotFound();
-            }
-            return View(fitnesProgram);
-        }
-
-        // POST: FitnesProgram/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FitnesProgramID,KorisnikID")] FitnesProgram fitnesProgram)
-        {
-            if (id != fitnesProgram.FitnesProgramID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(fitnesProgram);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!FitnesProgramExists(fitnesProgram.FitnesProgramID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(fitnesProgram);
         }
 
         [Authorize(Roles = "Korisnik")]
