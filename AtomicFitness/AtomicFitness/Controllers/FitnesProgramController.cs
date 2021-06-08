@@ -93,9 +93,11 @@ namespace AtomicFitness.Controllers
         // POST: FitnesProgram/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed()
         {
-            var fitnesProgram = await _context.FitnesProgram.FindAsync(id);
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            var fitnesProgram = await _context.FitnesProgram.Where(x => x.KorisnikID == id).FirstOrDefaultAsync();
             _context.FitnesProgram.Remove(fitnesProgram);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

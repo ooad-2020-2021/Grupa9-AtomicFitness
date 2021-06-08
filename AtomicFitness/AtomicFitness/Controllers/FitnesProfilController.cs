@@ -120,6 +120,9 @@ namespace AtomicFitness.Controllers
                 try
                 {
                     var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+                    int idCurrentUser = int.Parse(currentUser.Id);
+                    var fitnesProgrami = await _context.FitnesProgram.Where(x => x.KorisnikID == idCurrentUser).ToListAsync();
+                    _context.FitnesProgram.RemoveRange(fitnesProgrami);
                     fitnesProfil.Id = int.Parse(currentUser.Id);
                     _context.Update(fitnesProfil);
                     await _context.SaveChangesAsync();
@@ -164,6 +167,10 @@ namespace AtomicFitness.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int idCurrentUser = int.Parse(currentUser.Id);
+            var fitnesProgrami = await _context.FitnesProgram.Where(x => x.KorisnikID == idCurrentUser).ToListAsync();
+            _context.FitnesProgram.RemoveRange(fitnesProgrami);
             var fitnesProfil = await _context.FitnesProfil.FindAsync(id);
             _context.FitnesProfil.Remove(fitnesProfil);
             await _context.SaveChangesAsync();
