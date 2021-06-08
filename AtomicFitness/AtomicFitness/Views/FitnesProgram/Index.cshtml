@@ -6,30 +6,24 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KorisnikID)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KorisnikID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FitnesProgramID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FitnesProgramID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FitnesProgramID">Delete</a>
-            </td>
-        </tr>
+<form asp-action="Create">
+    <div class="form-group">
+        <p>
+            <input type="submit" value="Generate" class="btn btn-secondary" />
+        </p>
+    </div>
+</form>
+@{ 
+    int brojac = 1;
 }
-    </tbody>
-</table>
+    @foreach (var item in Model)
+    {
+        <div class="card border-primary mb-3 hover-container" style="width: 24.5%; display: inline-block">
+            <div class="card-header">Fitness Program: &#8470;@(brojac++)</div>
+            <div class="card-body">
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.FitnesProgramID" >Details</a>
+                <a class="btn btn-outline-danger" style="float: right" asp-action="Delete" asp-route-id="@item.FitnesProgramID">Delete</a>
+            </div>
+        </div>
+    }
+

@@ -1,4 +1,4 @@
-﻿@model AtomicFitness.Models.FitnesProgram
+﻿@model IEnumerable<AtomicFitness.Models.Vjezba>
 
 @{
     ViewData["Title"] = "Details";
@@ -6,19 +6,75 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>FitnesProgram</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KorisnikID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KorisnikID)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.FitnesProgramID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+@*
+    <div>
+        <h4>FitnesProgram</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KorisnikID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KorisnikID)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.FitnesProgramID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+*@
+
+<table class="table table-hover" style="text-align: center">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oprema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Misici)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojPonavljanja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojSerija)
+            </th>
+        </tr>
+    </thead>
+    
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oprema)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Misici)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrojPonavljanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrojSerija)
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    
+</table>
+

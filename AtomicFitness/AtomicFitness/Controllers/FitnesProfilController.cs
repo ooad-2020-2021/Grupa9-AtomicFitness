@@ -119,6 +119,8 @@ namespace AtomicFitness.Controllers
             {
                 try
                 {
+                    var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+                    fitnesProfil.Id = int.Parse(currentUser.Id);
                     _context.Update(fitnesProfil);
                     await _context.SaveChangesAsync();
                 }

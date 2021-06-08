@@ -15,7 +15,8 @@
             @Html.RadioButton("SearchBy", "Prezime", new { @class = "form-check-input" }) <span style="margin-right: 10px">Last Name</span>
             @Html.RadioButton("SearchBy", "Email", new { @class = "form-check-input"}) <span style="margin-right: 10px">Email</span>
         </div>
-        @Html.TextBox("Search") <input type="submit" value="Search" />
+        @Html.TextBox("Search", "", new { @class = "form-control me-sm-2", @style = "display: inline-block; width: 30%"}) 
+        <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0"/>
     }
 </div>
 
@@ -57,8 +58,8 @@ else
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-primary">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
             </td>
         </tr>
     }

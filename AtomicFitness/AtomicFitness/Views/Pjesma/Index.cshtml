@@ -19,7 +19,8 @@
             @Html.RadioButton("SearchBy", "Pjevaci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Singers</span>
             @Html.RadioButton("SearchBy", "Zanr", new { @class = "form-check-input" }) <span style="margin-right: 10px">Genre</span>
         </div>
-        @Html.TextBox("Search") <input type="submit" value="Search"/>
+        @Html.TextBox("Search","", new { @class = "form-control me-sm-2", @style = "display: inline-block; width: 30%" }) 
+        <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0"/>
         <br />
         <small class="form-text text-muted">For more than one ingredient use comma as a delimiter</small>
     }
@@ -68,9 +69,9 @@ else
                 @Html.DisplayFor(modelItem => item.GodinaIzdanja)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-primary">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-danger">Delete</a>
             </td>
         </tr>
     }

@@ -181,7 +181,6 @@ C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\At
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProfil\Details.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProfil\Edit.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProfil\Index.cshtml.g.cs
-C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProgram\Create.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProgram\Delete.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProgram\Details.cshtml.g.cs
 C:\Users\tarik\Source\Repos\ooad-2020-2021\Grupa9-AtomicFitness\AtomicFitness\AtomicFitness\obj\Debug\netcoreapp3.1\Razor\Views\FitnesProgram\Edit.cshtml.g.cs

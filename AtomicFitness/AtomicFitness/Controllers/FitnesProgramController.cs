@@ -24,33 +24,20 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProgram
         public async Task<IActionResult> Index()
         {
-            return View(await _context.FitnesProgram.ToListAsync());
+            var fitnesProgrami = await _context.FitnesProgram.ToListAsync();
+            return View(fitnesProgrami);
         }
 
         [Authorize(Roles = "Korisnik")]
         // GET: FitnesProgram/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            int idZadnjeGenerisanPrograma = await _context.FitnesProgram.MaxAsync(x => x.FitnesProgramID);
+            var fitnesProgram = await _context.FitnesProgram.FindAsync(idZadnjeGenerisanPrograma);
+            var vjezbe = await _context.Vjezba.Where(x => x.FitnesProgramID == fitnesProgram.FitnesProgramID).ToListAsync();
+            return View(vjezbe);
 
-            var fitnesProgram = await _context.FitnesProgram
-                .FirstOrDefaultAsync(m => m.FitnesProgramID == id);
-            if (fitnesProgram == null)
-            {
-                return NotFound();
-            }
-
-            return View(fitnesProgram);
-        }
-
-        [Authorize(Roles = "Korisnik")]
-        // GET: FitnesProgram/Create
-        public IActionResult Create()
-        {
-            return View();
+            //return View(fitnesProgram);
         }
 
         // POST: FitnesProgram/Create
@@ -58,15 +45,27 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FitnesProgramID,KorisnikID")] FitnesProgram fitnesProgram)
+        public async Task<IActionResult> Create(FitnesProgram fitnesProgram)
         {
-            if (ModelState.IsValid)
+
+            _context.Add(fitnesProgram);
+            await _context.SaveChangesAsync();
+            var vjezbe = await _context.Vjezba.ToListAsync();
+            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+            int id = int.Parse(currentUser.Id);
+            var fitnesProfili = await _context.FitnesProfil.ToListAsync();
+            var fitnesProfil = fitnesProfili.Find(x => x.Id == id);
+            if (fitnesProfil != null)
             {
-                _context.Add(fitnesProgram);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                vjezbe = vjezbe.FindAll(x => x.Level.Equals(fitnesProfil.Level) && x.Oprema.Equals(fitnesProfil.Oprema) && x.Misici.Equals(fitnesProfil.Misici));
+                foreach (var vjezba in vjezbe)
+                {
+                    vjezba.FitnesProgramID = fitnesProgram.FitnesProgramID;
+                    _context.Update(vjezba);
+                    await _context.SaveChangesAsync();
+                }
             }
-            return View(fitnesProgram);
+            return RedirectToAction(nameof(Index));
         }
 
         [Authorize(Roles = "Korisnik")]
