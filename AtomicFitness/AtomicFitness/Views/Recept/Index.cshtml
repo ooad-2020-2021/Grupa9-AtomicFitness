@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<AtomicFitness.Models.Recept>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Recipes";
 }
 
-<h1>Index</h1>
+<h1>Recipes</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-secondary">Create New</a>
@@ -24,44 +24,50 @@
         <small class="form-text text-muted">For more than one ingredient use comma as a delimiter</small>
     }
 </div>
-<table class="table table-hover" style="text-align: center" >
-    <thead>
-        <tr class="table-dark">
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sastojci)
-            </th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-@if (Model.Count() == 0)
-{
-    <tr>
-        <td colspan="3">No rows match search criteria</td>
-    </tr>
 
-}
-else
-{
-    foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sastojci)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReceptID" class="btn btn-outline-warning">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.ReceptID" class="btn btn-outline-info">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.ReceptID" class="btn btn-outline-danger">Delete</a>
-            </td>
-        </tr>
-    }
-}
-    </tbody>
-</table>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3">No rows match search criteria</td>
+            </tr>
+
+        }
+        else
+        {
+
+            <div class="container cont">
+                  <div class="row justify-content-md-center gap-xxl-5">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-3">
+                                <div class="card border-2 border-primary">
+                                    <div class="imgparent">
+                                        
+                                        <img src="https://www.eatwell101.com/wp-content/uploads/2019/04/Blackened-Chicken-and-Avocado-Salad-recipe-1.jpg" class="card-img-top" alt="Image">
+                                        <div class="fa fa-plus img-overlay"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Naziv)</h5>
+                                        <div style="margin: 1rem;">
+                                            <table class="table align-middle">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Ingredients:</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.Sastojci)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="text-center">
+                                            <a asp-action="Edit" asp-route-id="@item.ReceptID" class="btn btn-outline-warning">Edit</a>
+                                            <a asp-action="Details" asp-route-id="@item.ReceptID" class="btn btn-outline-info">Details</a>
+                                            <a asp-action="Delete" asp-route-id="@item.ReceptID" class="btn btn-outline-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+             </div>
+        }
+   

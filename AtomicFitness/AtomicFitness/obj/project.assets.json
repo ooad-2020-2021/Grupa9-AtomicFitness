@@ -9666,19 +9666,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tarik\\.nuget\\packages\\": {}
+    "C:\\Users\\dinij\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tarik\\Source\\Repos\\ooad-2020-2021\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\AtomicFitness.csproj",
+      "projectUniqueName": "C:\\Users\\dinij\\Source\\Repos\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\AtomicFitness.csproj",
       "projectName": "AtomicFitness",
-      "projectPath": "C:\\Users\\tarik\\Source\\Repos\\ooad-2020-2021\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\AtomicFitness.csproj",
-      "packagesPath": "C:\\Users\\tarik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tarik\\Source\\Repos\\ooad-2020-2021\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\obj\\",
+      "projectPath": "C:\\Users\\dinij\\Source\\Repos\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\AtomicFitness.csproj",
+      "packagesPath": "C:\\Users\\dinij\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dinij\\Source\\Repos\\Grupa9-AtomicFitness\\AtomicFitness\\AtomicFitness\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tarik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dinij\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9753,7 +9753,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
