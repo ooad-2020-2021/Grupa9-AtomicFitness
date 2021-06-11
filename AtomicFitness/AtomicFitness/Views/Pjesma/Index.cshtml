@@ -5,10 +5,11 @@
 }
 
 <h1>Music</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-secondary">Create New</a>
-</p>
+@if (User.IsInRole("Administrator")) {
+    <p>
+        <a asp-action="Create" class="btn btn-secondary">Create New</a>
+    </p>
+ }
 
 <div style="margin-bottom: 10px">
     @using (Html.BeginForm("Index", "Pjesma", FormMethod.Get))
@@ -19,31 +20,13 @@
             @Html.RadioButton("SearchBy", "Pjevaci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Singers</span>
             @Html.RadioButton("SearchBy", "Zanr", new { @class = "form-check-input" }) <span style="margin-right: 10px">Genre</span>
         </div>
-        @Html.TextBox("Search","", new { @class = "form-control me-sm-2", @style = "display: inline-block; width: 30%" }) 
-        <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0"/>
+        @Html.TextBox("Search", "", new { @class = "form-control me-sm-2", @style = "display: inline-block; width: 30%" })
+        <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0" />
         <br />
-        <small class="form-text text-muted">For more than one ingredient use comma as a delimiter</small>
+        <small class="form-text text-muted">For more than one song use comma as a delimiter</small>
     }
 </div>
-<table class="table table-hover" style="text-align: center">
-    <thead>
-        <tr class="table-dark">
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pjevaci)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zanr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GodinaIzdanja)
-            </th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
+
 @if (Model.Count() == 0)
 {
     <tr>
@@ -53,28 +36,37 @@
 }
 else
 {
-    foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pjevaci)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zanr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-info">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-danger">Delete</a>
-            </td>
-        </tr>
-    }
+    <div class="container cont-music">
+        <div class="row ">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12">
+                    <div class="card border-2 border-primary card-music">
+                        <div class="imgparent-music">
+
+                            <img src="https://ak.picdn.net/shutterstock/videos/1038536891/thumb/11.jpg?ip=x480" class="card-img-top" alt="Image">
+                            <div class="fa fa-plus img-overlay"></div>
+                        </div>
+                        <div class="card-body-music">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Naziv)</h5>
+                            <div class="music-desc">
+
+                                Artist: @Html.DisplayFor(modelItem => item.Pjevaci)<br />
+                                Year: @Html.DisplayFor(modelItem => item.GodinaIzdanja) &nbsp;&nbsp;&nbsp; Genre: @Html.DisplayFor(modelItem => item.Zanr)
+
+                            </div>
+                            <div class="buttons-music">
+                                @if (User.IsInRole("Administrator"))
+                                {<a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning musicedit">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-danger musicdel">Delete</a>
+                                }
+                                <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-info musicdet">Details</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 }
-    </tbody>
-</table>

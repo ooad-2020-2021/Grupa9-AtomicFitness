@@ -56,12 +56,77 @@ a {
 
 
 
+/* Music lista izgled*/
+
+.cont-music {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:8rem;
+}
+
+.card-music {
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin: 20px;
+    overflow: hidden;
+    width: 700px;
+    height: 100px;
+}
+
+.imgparent-music {
+    width: 180px;
+    height: 300px;
+    position: relative;
+    
+}
+
+.card-body-music {
+    padding: 5px;
+    position: absolute;
+    left:28%;
+}
+
+.buttons-music {
+    position: absolute;
+    top: 7%;
+    left: 170%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 4px;
+}
+
+.music-desc {
+    color:wheat;
+}
+
+.buttons-music a {
+    font-size: 15px;
+    
+}
+
+.musicdel {
+    border-radius: 150px;
+    height:25px;
+}
+
+.musicdet {
+    border-radius: 150px;
+    height: 25px;
+}
+
+.musicedit{
+    border-radius: 150px;
+    height: 25px;
+}
+
 
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
