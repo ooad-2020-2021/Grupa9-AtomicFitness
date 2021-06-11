@@ -6,9 +6,12 @@
 
 <h1>Exercises</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-secondary">Create New</a>
-</p>
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-secondary">Create New</a>
+    </p>
+}
 <div style="margin-bottom: 10px">
     @using (Html.BeginForm("Index", "Vjezba", FormMethod.Get))
     {
@@ -59,56 +62,62 @@
 }
 else
 {
-<div class="container cont">
-    <div class="row justify-content-md-center gap-xxl-5">
-        @foreach (var item in Model)
-        {
-        <div class="col-sm-3">
-            <div class="card border-2 border-primary">
-                <div class="imgparent">
-                    
-                    <img src="https://i1.wp.com/davidsway.blog/wp-content/uploads/2020/07/back-squat.jpg?w=394&ssl=1" class="card-img-top" alt="Image">
-                    <div class="fa fa-plus img-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Naziv)</h5>
-                    <div style="margin: 1rem;">
-                        <table class="table align-middle">
-                            <tbody>
-                                <tr>
-                                    <td>Equipment:</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Oprema)<br></td>
-                                </tr>
-                                <tr>
-                                    <td>Level:</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Level)</td>
-                                </tr>
-                                <tr>
-                                    <td>Muscles:</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Misici)</td>
-                                </tr>
-                                <tr>
-                                    <td>Reps:</td>
-                                    <td>@Html.DisplayFor(modelItem => item.BrojPonavljanja)</td>
-                                </tr>
-                                <tr>
-                                    <td>Sets:</td>
-                                    <td>@Html.DisplayFor(modelItem => item.BrojSerija)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+    <div class="container cont">
+        <div class="row justify-content-md-center gap-xxl-5">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-3">
+                    <div class="card border-2 border-primary">
+                        <div class="imgparent">
+
+                            <img src="https://i1.wp.com/davidsway.blog/wp-content/uploads/2020/07/back-squat.jpg?w=394&ssl=1" class="card-img-top" alt="Image">
+                            <div class="fa fa-plus img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Naziv)</h5>
+                            <div style="margin: 1rem;">
+                                <table class="table align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td>Equipment:</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Oprema)<br></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Level:</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Level)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muscles:</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Misici)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reps:</td>
+                                            <td>@Html.DisplayFor(modelItem => item.BrojPonavljanja)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sets:</td>
+                                            <td>@Html.DisplayFor(modelItem => item.BrojSerija)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center">
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.VjezbaID" class="btn btn-outline-warning">Edit</a>
+                                }
+                                <a asp-action="Details" asp-route-id="@item.VjezbaID" class="btn btn-outline-info">Details</a>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.VjezbaID" class="btn btn-outline-danger">Delete</a>
+                                }
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <a asp-action="Edit" asp-route-id="@item.VjezbaID" class="btn btn-outline-warning">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.VjezbaID" class="btn btn-outline-info">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.VjezbaID" class="btn btn-outline-danger">Delete</a>
-                    </div>
                 </div>
-            </div>
+            }
         </div>
-        }
     </div>
-</div>
-    }
+}
 
 

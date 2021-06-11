@@ -57,11 +57,14 @@ else
                             </div>
                             <div class="buttons-music">
                                 @if (User.IsInRole("Administrator"))
-                                {<a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning musicedit">Edit</a>
-                                    <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-danger musicdel">Delete</a>
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning musicedit">Edit</a>
                                 }
                                 <a asp-action="Details" asp-route-id="@item.PjesmaID" class="btn btn-outline-info musicdet">Details</a>
-
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.PjesmaID" class="btn btn-outline-danger musicdel">Delete</a>
+                                }
                             </div>
                         </div>
                     </div>
