@@ -39,17 +39,17 @@ else
 {
 
     <div class="container cont">
-        <div class="row justify-content-md-center gap-xxl-5">
+        <div class="row justify-content-md-center gap-xxl-5 flex-fill">
             @foreach (var item in Model)
             {
-                <div class="col-sm-3">
-                    <div class="card border-2 border-primary">
+                <div class="col d-flex mb-4">
+                    <div class="card border-2 border-primary h-100">
                         <div class="imgparent">
 
                             <img src="https://www.eatwell101.com/wp-content/uploads/2019/04/Blackened-Chicken-and-Avocado-Salad-recipe-1.jpg" class="card-img-top" alt="Image">
                             <div class="fa fa-plus img-overlay"></div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body flex-fill flex-column d-flex">
                             <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Naziv)</h5>
                             <div style="margin: 1rem;">
                                 <table class="table align-middle">
@@ -61,7 +61,7 @@ else
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center mt-auto">
                                 @if (User.IsInRole("Administrator"))
                                 {
                                     <a asp-action="Edit" asp-route-id="@item.ReceptID" class="btn btn-outline-warning">Edit</a>

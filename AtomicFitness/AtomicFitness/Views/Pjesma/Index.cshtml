@@ -40,22 +40,24 @@ else
         <div class="row ">
             @foreach (var item in Model)
             {
-                <div class="col-md-12">
-                    <div class="card border-2 border-primary card-music">
+                <div class="col-12">
+                    <div class="card border-2 border-primary card-music ">
                         <div class="imgparent-music">
 
-                            <img src="https://ak.picdn.net/shutterstock/videos/1038536891/thumb/11.jpg?ip=x480" class="card-img-top" alt="Image">
+                            <img src="https://ak.picdn.net/shutterstock/videos/1038536891/thumb/11.jpg?ip=x480" class="card-img-top" alt="">
                             <div class="fa fa-plus img-overlay"></div>
                         </div>
-                        <div class="card-body-music">
+                        <div class="card-body-music ">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Naziv)</h5>
                             <div class="music-desc">
 
                                 Artist: @Html.DisplayFor(modelItem => item.Pjevaci)<br />
-                                Year: @Html.DisplayFor(modelItem => item.GodinaIzdanja) &nbsp;&nbsp;&nbsp; Genre: @Html.DisplayFor(modelItem => item.Zanr)
-
+                                <div class="song-info">
+                                     Year: @Html.DisplayFor(modelItem => item.GodinaIzdanja) <br />
+                                     Genre: @Html.DisplayFor(modelItem => item.Zanr)
+                                </div>
                             </div>
-                            <div class="buttons-music">
+                            <div class="buttons-music ml-auto" >
                                 @if (User.IsInRole("Administrator"))
                                 {
                                     <a asp-action="Edit" asp-route-id="@item.PjesmaID" class="btn btn-outline-warning musicedit">Edit</a>
