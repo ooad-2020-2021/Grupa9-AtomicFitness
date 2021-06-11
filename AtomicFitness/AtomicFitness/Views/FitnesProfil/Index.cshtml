@@ -6,9 +6,12 @@
 
 <h1>Fitness Profile</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-secondary">Create New</a>
-</p>
+@if (Model.Count() == 0)
+{
+    <p>
+        <a asp-action="Create" class="btn btn-secondary">Create New</a>
+    </p>
+}
 
 <table class="table table-hover" style="text-align: center">
     <thead>
@@ -41,38 +44,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Spol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Starost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kilaza)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Visina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Oprema)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ciljevi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Misici)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-warning">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-info">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-danger">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Spol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Starost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kilaza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oprema)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciljevi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Misici)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.FitnesProfilID" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
