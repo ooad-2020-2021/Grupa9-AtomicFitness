@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label asp-for="Naziv" class="form-label mt-4"></label>
                 <div class="form-floating">
-                    <input asp-for="Naziv" class="form-control" id="floatingInput" placeholder=" "/>
+                    <input asp-for="Naziv" class="form-control" id="floatingInput" placeholder=" " />
                     <label for="floatingInput">What is the name of your exercise?</label>
                 </div>
                 <span asp-validation-for="Naziv" class="text-danger"></span>
@@ -50,6 +50,14 @@
                 <label asp-for="Opis" class="form-label mt-4"></label>
                 <textarea asp-for="Opis" class="form-control"></textarea>
                 <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="form-label mt-4"></label>
+                <div class="form-floating">
+                    <input asp-for="Link" class="form-control" id="floatingInput" placeholder=" " />
+                    <label for="floatingInput">Provide a link to picture.</label>
+                </div>
+                <span asp-validation-for="Link" class="text-danger"></span>
             </div>
             <div class="form-label mt-4">
                 <input type="submit" value="Create" class="btn btn-secondary" />

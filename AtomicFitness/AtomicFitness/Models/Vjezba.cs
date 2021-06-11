@@ -46,6 +46,10 @@ namespace AtomicFitness.Models
         [Required]
         public string Opis { get; set; }
 
+        [Display(Name = "Link to picture")]
+        [Required]
+        public string Link { get; set; }
+
         public Vjezba() { }
 
     }

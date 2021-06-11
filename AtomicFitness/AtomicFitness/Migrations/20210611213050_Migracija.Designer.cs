@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AtomicFitness.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210607150251_Migracija")]
+    [Migration("20210611213050_Migracija")]
     partial class Migracija
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -181,6 +181,10 @@ namespace AtomicFitness.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Naziv")
                         .IsRequired()
                         .HasColumnType("text");
@@ -215,6 +219,10 @@ namespace AtomicFitness.Migrations
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("Misici")
                         .HasColumnType("int");

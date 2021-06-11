@@ -79,7 +79,7 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VjezbaID,FitnesProgramID,Naziv,Oprema,Level,Misici,BrojPonavljanja,BrojSerija,Opis")] Vjezba vjezba)
+        public async Task<IActionResult> Create([Bind("VjezbaID,FitnesProgramID,Naziv,Oprema,Level,Misici,BrojPonavljanja,BrojSerija,Opis,Link")] Vjezba vjezba)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +112,7 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VjezbaID,FitnesProgramID,Naziv,Oprema,Level,Misici,BrojPonavljanja,BrojSerija,Opis")] Vjezba vjezba)
+        public async Task<IActionResult> Edit(int id, [Bind("VjezbaID,FitnesProgramID,Naziv,Oprema,Level,Misici,BrojPonavljanja,BrojSerija,Opis,Link")] Vjezba vjezba)
         {
             if (id != vjezba.VjezbaID)
             {

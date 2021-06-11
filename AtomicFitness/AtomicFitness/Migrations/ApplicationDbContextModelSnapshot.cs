@@ -179,6 +179,10 @@ namespace AtomicFitness.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Naziv")
                         .IsRequired()
                         .HasColumnType("text");
@@ -213,6 +217,10 @@ namespace AtomicFitness.Migrations
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("Misici")
                         .HasColumnType("int");

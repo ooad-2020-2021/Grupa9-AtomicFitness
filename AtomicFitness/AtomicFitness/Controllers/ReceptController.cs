@@ -70,7 +70,7 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReceptID,Naziv,Sastojci,Opis")] Recept recept)
+        public async Task<IActionResult> Create([Bind("ReceptID,Naziv,Sastojci,Opis,Link")] Recept recept)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace AtomicFitness.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReceptID,Naziv,Sastojci,Opis")] Recept recept)
+        public async Task<IActionResult> Edit(int id, [Bind("ReceptID,Naziv,Sastojci,Opis,Link")] Recept recept)
         {
             if (id != recept.ReceptID)
             {

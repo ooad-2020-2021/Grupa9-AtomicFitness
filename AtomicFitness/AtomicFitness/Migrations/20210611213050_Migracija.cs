@@ -108,7 +108,8 @@ namespace AtomicFitness.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Naziv = table.Column<string>(nullable: false),
                     Sastojci = table.Column<string>(nullable: false),
-                    Opis = table.Column<string>(nullable: false)
+                    Opis = table.Column<string>(nullable: false),
+                    Link = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -128,7 +129,8 @@ namespace AtomicFitness.Migrations
                     Misici = table.Column<int>(nullable: false),
                     BrojPonavljanja = table.Column<int>(nullable: false),
                     BrojSerija = table.Column<int>(nullable: false),
-                    Opis = table.Column<string>(nullable: false)
+                    Opis = table.Column<string>(nullable: false),
+                    Link = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
