@@ -209,7 +209,7 @@ ul li:hover:after {
 .buttons-music {
     position: absolute;
     top: 7%;
-    left: 380%;
+    left: 400px;
     display: flex;
     flex-direction: column;
     grid-gap: 4px;
