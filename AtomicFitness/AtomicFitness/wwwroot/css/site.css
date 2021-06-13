@@ -12,11 +12,104 @@ a {
   color: #0366d6;
 }
 
+.glow {
+    color: #0366d6;
+}
+.glow:hover {
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+
+}
+
+
+@-webkit-keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff, 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff, 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    }
+}
+
+
+
+@-moz-keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff, 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff, 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    }
+}
+
+
+
+
+@keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff, 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff, 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    }
+}
+
+    
+
+ul li:hover {
+    color: #000;
+}
+
+ul li:before,
+ul li:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00ccff;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+ul li:after {
+    z-index: -2;
+    filter: blur(20px);
+}
+
+ul li:hover:before,
+ul li:hover:after {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.table-hover > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: 1px;
+    border-color: rgba(111,66,193,255);
+    border-radius: 0px 0px 2px 2px;
+    box-shadow: 0px 0px 2px 2px rgba(111,66,193,255);
+}
+
+.table-dark {
+    border: 1px;
+    border-color: rgba(111,66,193,255);
+    border-radius: 0px 0px 2px 2px;
+    box-shadow: 0px 0px 2px 2px rgba(111,66,193,255);
+}
+
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
@@ -47,6 +140,7 @@ a {
 
 .card {
     border-radius: 10px;
+    width: 17rem;
 }
 
 .cont {
@@ -83,6 +177,8 @@ a {
 
 .card-img-top {
     border-radius: 9px 9px 0 0;
+    max-width: 280px;
+    max-height: 170px;
 }
 
 .imgparent-music {
