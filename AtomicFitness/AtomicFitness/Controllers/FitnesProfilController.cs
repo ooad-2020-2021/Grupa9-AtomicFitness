@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace AtomicFitness.Controllers
 {
@@ -21,19 +17,29 @@ namespace AtomicFitness.Controllers
             _context = context;
         }
 
+        private Korisnik getCurrent()
+        {
+            return _context.Korisnik.Where(user => user.Email == User.Identity.Name).FirstOrDefault();
+        }
+
+        private int getId(string userId)
+        {
+            return int.Parse(userId);
+        }
+
         [Authorize(Roles = "Korisnik")]
         // GET: FitnesProfil
         public async Task<IActionResult> Index()
         {
             var fitnesProfili = await _context.FitnesProfil.ToListAsync();
-            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
-            int id = int.Parse(currentUser.Id);
-            fitnesProfili = fitnesProfili.FindAll(x => x.Id == id);
+            var currentUser = getCurrent();
+            int id = getId(currentUser.Id);
+            fitnesProfili = fitnesProfili.FindAll(profil => profil.Id == id);
             return View(fitnesProfili);
         }
 
         [Authorize(Roles = "Korisnik")]
-        // GET: FitnesProfil/Details/5
+        // GET: FitnesProfil/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,7 +48,7 @@ namespace AtomicFitness.Controllers
             }
 
             var fitnesProfil = await _context.FitnesProfil
-                .FirstOrDefaultAsync(m => m.FitnesProfilID == id);
+                .FirstOrDefaultAsync(profil => profil.FitnesProfilID == id);
             if (fitnesProfil == null)
             {
                 return NotFound();
@@ -55,9 +61,9 @@ namespace AtomicFitness.Controllers
         // GET: FitnesProfil/Create
         public IActionResult Create()
         {
-            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
-            int id = int.Parse(currentUser.Id);
-            var fitnesProfil = _context.FitnesProfil.Where(c => c.Id == id).FirstOrDefault();
+            var currentUser = getCurrent();
+            int id = getId(currentUser.Id);
+            var fitnesProfil = _context.FitnesProfil.Where(profil => profil.Id == id).FirstOrDefault();
             if (fitnesProfil != null)
             {
                 return View("Views/FitnesProfil/CreateAccessDenied.cshtml");
@@ -69,15 +75,13 @@ namespace AtomicFitness.Controllers
         }
 
         // POST: FitnesProfil/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FitnesProfilID,Spol,Level,Starost,Kilaza,Visina,Oprema,Ciljevi,Misici")] FitnesProfil fitnesProfil)
         {
             if (ModelState.IsValid)
             {
-                var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
+                var currentUser = getCurrent();
                 fitnesProfil.Id = int.Parse(currentUser.Id);
                 _context.Add(fitnesProfil);
                 await _context.SaveChangesAsync();
@@ -87,7 +91,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Korisnik")]
-        // GET: FitnesProfil/Edit/5
+        // GET: FitnesProfil/Edit/
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -103,9 +107,7 @@ namespace AtomicFitness.Controllers
             return View(fitnesProfil);
         }
 
-        // POST: FitnesProfil/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: FitnesProfil/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FitnesProfilID,Spol,Level,Starost,Kilaza,Visina,Oprema,Ciljevi,Misici")] FitnesProfil fitnesProfil)
@@ -119,9 +121,9 @@ namespace AtomicFitness.Controllers
             {
                 try
                 {
-                    var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
-                    int idCurrentUser = int.Parse(currentUser.Id);
-                    var fitnesProgrami = await _context.FitnesProgram.Where(x => x.KorisnikID == idCurrentUser).ToListAsync();
+                    var currentUser = getCurrent();
+                    int idCurrentUser = getId(currentUser.Id);
+                    var fitnesProgrami = await _context.FitnesProgram.Where(program => program.KorisnikID == idCurrentUser).ToListAsync();
                     _context.FitnesProgram.RemoveRange(fitnesProgrami);
                     fitnesProfil.Id = int.Parse(currentUser.Id);
                     _context.Update(fitnesProfil);
@@ -144,7 +146,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Korisnik")]
-        // GET: FitnesProfil/Delete/5
+        // GET: FitnesProfil/Delete/
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +155,7 @@ namespace AtomicFitness.Controllers
             }
 
             var fitnesProfil = await _context.FitnesProfil
-                .FirstOrDefaultAsync(m => m.FitnesProfilID == id);
+                .FirstOrDefaultAsync(profil => profil.FitnesProfilID == id);
             if (fitnesProfil == null)
             {
                 return NotFound();
@@ -162,14 +164,14 @@ namespace AtomicFitness.Controllers
             return View(fitnesProfil);
         }
 
-        // POST: FitnesProfil/Delete/5
+        // POST: FitnesProfil/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var currentUser = _context.Korisnik.Where(c => c.Email == User.Identity.Name).FirstOrDefault();
-            int idCurrentUser = int.Parse(currentUser.Id);
-            var fitnesProgrami = await _context.FitnesProgram.Where(x => x.KorisnikID == idCurrentUser).ToListAsync();
+            var currentUser = getCurrent();
+            int idCurrentUser = getId(currentUser.Id);
+            var fitnesProgrami = await _context.FitnesProgram.Where(program => program.KorisnikID == idCurrentUser).ToListAsync();
             _context.FitnesProgram.RemoveRange(fitnesProgrami);
             var fitnesProfil = await _context.FitnesProfil.FindAsync(id);
             _context.FitnesProfil.Remove(fitnesProfil);
@@ -179,7 +181,7 @@ namespace AtomicFitness.Controllers
 
         private bool FitnesProfilExists(int id)
         {
-            return _context.FitnesProfil.Any(e => e.FitnesProfilID == id);
+            return _context.FitnesProfil.Any(profil => profil.FitnesProfilID == id);
         }
     }
 }

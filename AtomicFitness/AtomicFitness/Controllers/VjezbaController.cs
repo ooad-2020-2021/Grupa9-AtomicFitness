@@ -28,19 +28,31 @@ namespace AtomicFitness.Controllers
         {
             if(SearchBy == "Naziv") 
             {
-                return View(await _context.Vjezba.Where(x => Search == null || x.Naziv.Replace(" ","").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+                return View(await _context.Vjezba.Where(vjezba => Search == null || vjezba.Naziv.Replace(" ","")
+                                                 .Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase))
+                                                 .ToListAsync());
             }
             else if (SearchBy == "Oprema")
             {
-                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Oprema)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Oprema.Equals((Oprema)Enum.Parse(typeof(Oprema), Regex.Replace(Search, @"\s", ""),true))).ToListAsync());
+                return View(await _context.Vjezba.Where(vjezba => Search == null || Enum.GetNames(typeof(Oprema))
+                                                 .Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) &&
+                                                 vjezba.Oprema.Equals((Oprema)Enum.Parse(typeof(Oprema), 
+                                                 Regex.Replace(Search, @"\s", ""),true))).ToListAsync());
             }
             else if(SearchBy == "Level")
             {
-                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Level)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Level.Equals((Level)Enum.Parse(typeof(Level), Regex.Replace(Search, @"\s", ""), true))).ToListAsync());
+                return View(await _context.Vjezba.Where(vjezba => Search == null || 
+                                                 Enum.GetNames(typeof(Level)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) &&
+                                                 vjezba.Level.Equals((Level)Enum.Parse(typeof(Level), Regex.Replace(Search, @"\s", ""), true)))
+                                                 .ToListAsync());
             }
             else if (SearchBy == "Misici")
             {
-                return View(await _context.Vjezba.Where(x => Search == null || Enum.GetNames(typeof(Misici)).Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && x.Misici.Equals((Misici)Enum.Parse(typeof(Misici), Regex.Replace(Search, @"\s", ""), true))).ToListAsync());
+                return View(await _context.Vjezba.Where(x => Search == null || 
+                                                    Enum.GetNames(typeof(Misici))
+                                                    .Contains(Regex.Replace(Search, @"\s", ""), StringComparer.OrdinalIgnoreCase) && 
+                                                    x.Misici.Equals((Misici)Enum.Parse(typeof(Misici), Regex.Replace(Search, @"\s", ""), true)))
+                                                    .ToListAsync());
             }
             else
             {

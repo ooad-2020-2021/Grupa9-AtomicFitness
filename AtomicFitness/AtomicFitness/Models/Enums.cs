@@ -44,8 +44,8 @@ namespace AtomicFitness.Models
 
         public enum Ciljevi
         {
-            [Display(Name = "Loose Weight")]
-            LooseWeight,
+            [Display(Name = "Lose Weight")]
+            LoseWeight,
             [Display(Name = "Gain Muscle")]
             GainMuscle,
             [Display(Name = "Improve Health")]

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
@@ -27,11 +25,15 @@ namespace AtomicFitness.Controllers
         {
             if (SearchBy == "Naziv")
             {
-                return View(await _context.Recept.Where(x => Search == null || x.Naziv.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+                return View(await _context.Recept.Where(recept => Search == null || recept.Naziv.Replace(" ", "")
+                                                 .Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase))
+                                                 .ToListAsync());
             }
             else if (SearchBy == "Sastojci")
             {
-                return View(await _context.Recept.Where(x => Search == null || x.Sastojci.Replace(" ", "").IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0).ToListAsync());
+                return View(await _context.Recept.Where(recept => Search == null || recept.Sastojci.Replace(" ", "")
+                                                 .IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0)
+                                                 .ToListAsync());
             }
             else
             {
@@ -40,7 +42,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize]
-        // GET: Recept/Details/5
+        // GET: Recept/Details/
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,7 +51,7 @@ namespace AtomicFitness.Controllers
             }
 
             var recept = await _context.Recept
-                .FirstOrDefaultAsync(m => m.ReceptID == id);
+                .FirstOrDefaultAsync(recept => recept.ReceptID == id);
             if (recept == null)
             {
                 return NotFound();
@@ -66,8 +68,6 @@ namespace AtomicFitness.Controllers
         }
 
         // POST: Recept/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReceptID,Naziv,Sastojci,Opis,Link")] Recept recept)
@@ -82,7 +82,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        // GET: Recept/Edit/5
+        // GET: Recept/Edit/
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,9 +98,7 @@ namespace AtomicFitness.Controllers
             return View(recept);
         }
 
-        // POST: Recept/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Recept/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ReceptID,Naziv,Sastojci,Opis,Link")] Recept recept)
@@ -134,7 +132,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        // GET: Recept/Delete/5
+        // GET: Recept/Delete/
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -143,7 +141,7 @@ namespace AtomicFitness.Controllers
             }
 
             var recept = await _context.Recept
-                .FirstOrDefaultAsync(m => m.ReceptID == id);
+                .FirstOrDefaultAsync(recept => recept.ReceptID == id);
             if (recept == null)
             {
                 return NotFound();
@@ -165,7 +163,7 @@ namespace AtomicFitness.Controllers
 
         private bool ReceptExists(int id)
         {
-            return _context.Recept.Any(e => e.ReceptID == id);
+            return _context.Recept.Any(recept => recept.ReceptID == id);
         }
     }
 }

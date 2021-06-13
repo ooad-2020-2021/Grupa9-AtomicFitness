@@ -17,13 +17,13 @@
         <div style="margin-bottom: 10px">
             <b style="margin-right: 10px">Search By:</b>
             @Html.RadioButton("SearchBy", "Naziv", new { @class = "form-check-input" }) <span style="margin-right: 10px">Name</span>
-            @Html.RadioButton("SearchBy", "Pjevaci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Singers</span>
+            @Html.RadioButton("SearchBy", "Pjevaci", new { @class = "form-check-input" }) <span style="margin-right: 10px">Singer</span>
             @Html.RadioButton("SearchBy", "Zanr", new { @class = "form-check-input" }) <span style="margin-right: 10px">Genre</span>
         </div>
         @Html.TextBox("Search", "", new { @class = "form-control me-sm-2", @style = "display: inline-block; width: 30%" })
         <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0" />
         <br />
-        <small class="form-text text-muted">For more than one song use comma as a delimiter</small>
+        <small class="form-text text-muted">For more than one singer use comma as a delimiter</small>
     }
 </div>
 

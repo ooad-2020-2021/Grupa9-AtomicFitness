@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AtomicFitness.Data;
 using AtomicFitness.Models;
@@ -29,15 +27,21 @@ namespace AtomicFitness.Controllers
 
             if (SearchBy == "Naziv")
             {
-                return View(await _context.Pjesma.Where(x => Search == null || x.Naziv.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+                return View(await _context.Pjesma.Where(pjesma => Search == null || pjesma.Naziv.Replace(" ", "")
+                                                 .Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase))
+                                                 .ToListAsync());
             }
             else if (SearchBy == "Pjevaci")
             {
-                return View(await _context.Pjesma.Where(x => Search == null || x.Pjevaci.Replace(" ", "").IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0).ToListAsync());
+                return View(await _context.Pjesma.Where(pjesma => Search == null || pjesma.Pjevaci.Replace(" ", "")
+                                                 .IndexOf(Regex.Replace(Search, @"\s", ""), StringComparison.OrdinalIgnoreCase) >= 0)
+                                                 .ToListAsync());
             }
             else if (SearchBy == "Zanr")
             {
-                return View(await _context.Pjesma.Where(x => Search == null || x.Zanr.Replace(" ", "").Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase)).ToListAsync());
+                return View(await _context.Pjesma.Where(pjesma => Search == null || pjesma.Zanr.Replace(" ", "")
+                                                 .Equals(Regex.Replace(Search, @"\s", ""), StringComparison.InvariantCultureIgnoreCase))
+                                                 .ToListAsync());
             }
             else
             {
@@ -46,7 +50,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize]
-        // GET: Pjesma/Details/5
+        // GET: Pjesma/Details/
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -55,7 +59,7 @@ namespace AtomicFitness.Controllers
             }
 
             var pjesma = await _context.Pjesma
-                .FirstOrDefaultAsync(m => m.PjesmaID == id);
+                .FirstOrDefaultAsync(pjesma => pjesma.PjesmaID == id);
             if (pjesma == null)
             {
                 return NotFound();
@@ -72,8 +76,7 @@ namespace AtomicFitness.Controllers
         }
 
         // POST: Pjesma/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja,Link")] Pjesma pjesma)
@@ -101,7 +104,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        // GET: Pjesma/Edit/5
+        // GET: Pjesma/Edit/
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,9 +120,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
-        // POST: Pjesma/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Pjesma/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("PjesmaID,Naziv,Pjevaci,Zanr,GodinaIzdanja,Link")] Pjesma pjesma)
@@ -166,7 +167,7 @@ namespace AtomicFitness.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        // GET: Pjesma/Delete/5
+        // GET: Pjesma/Delete/
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -175,7 +176,7 @@ namespace AtomicFitness.Controllers
             }
 
             var pjesma = await _context.Pjesma
-                .FirstOrDefaultAsync(m => m.PjesmaID == id);
+                .FirstOrDefaultAsync(pjesma => pjesma.PjesmaID == id);
             if (pjesma == null)
             {
                 return NotFound();
@@ -184,7 +185,7 @@ namespace AtomicFitness.Controllers
             return View(pjesma);
         }
 
-        // POST: Pjesma/Delete/5
+        // POST: Pjesma/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -197,7 +198,7 @@ namespace AtomicFitness.Controllers
 
         private bool PjesmaExists(int id)
         {
-            return _context.Pjesma.Any(e => e.PjesmaID == id);
+            return _context.Pjesma.Any(pjesma => pjesma.PjesmaID == id);
         }
     }
 }
